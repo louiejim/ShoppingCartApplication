@@ -1,4 +1,3 @@
-
 {
   "products": [
     {
@@ -6,14 +5,16 @@
       "name": "Product 1",
       "category": "Category A",
       "price": 10.99,
-      "quantity_available": 100
+      "quantity_available": 100,
+      "sold": 30
     },
     {
       "id": 2,
       "name": "Product 2",
       "category": "Category B",
       "price": 20.49,
-      "quantity_available": 50
+      "quantity_available": 50,
+      "sold": 3
     }
   ],
 
@@ -25,9 +26,11 @@
       "email": "user1@example.com",
       "mobile": "1234567890",
       "firstName": "John",
+      "middleName": "cruz",
       "lastName": "Doe",
       "birthdate": "1990-01-01",
-      "interests": ["Interest1", "Interest2"]
+      "interests": ["Interest1", "Interest2"],
+      "isAdmin": false
     },
     {
       "id": 2,
@@ -36,9 +39,11 @@
       "email": "user2@example.com",
       "mobile": "9876543210",
       "firstName": "Jane",
+      "middleName": "cruz",
       "lastName": "Doe",
       "birthdate": "1995-05-05",
-      "interests": ["Interest3", "Interest4"]
+      "interests": ["Interest3", "Interest4"],
+      "isAdmin": true
     }
   ],
   
@@ -57,9 +62,23 @@
         }
       ],
       "status": "pending"
+    },
+    {
+      "id": 1,
+      "userId": 1,
+      "products": [
+        {
+          "productId": 1,
+          "quantity": 2
+        },
+        {
+          "productId": 2,
+          "quantity": 1
+        }
+      ],
+      "status": "in-cart"
     }
   ]
   
   
 }
-   

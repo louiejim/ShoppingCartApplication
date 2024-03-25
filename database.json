@@ -1,0 +1,65 @@
+
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "category": "Category A",
+      "price": 10.99,
+      "quantity_available": 100
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "category": "Category B",
+      "price": 20.49,
+      "quantity_available": 50
+    }
+  ],
+
+  "users": [
+    {
+      "id": 1,
+      "username": "user1",
+      "password": "password1",
+      "email": "user1@example.com",
+      "mobile": "1234567890",
+      "firstName": "John",
+      "lastName": "Doe",
+      "birthdate": "1990-01-01",
+      "interests": ["Interest1", "Interest2"]
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "password": "password2",
+      "email": "user2@example.com",
+      "mobile": "9876543210",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "birthdate": "1995-05-05",
+      "interests": ["Interest3", "Interest4"]
+    }
+  ],
+  
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "products": [
+        {
+          "productId": 1,
+          "quantity": 2
+        },
+        {
+          "productId": 2,
+          "quantity": 1
+        }
+      ],
+      "status": "pending"
+    }
+  ]
+  
+  
+}
+   

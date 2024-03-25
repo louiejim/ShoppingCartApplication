@@ -1,0 +1,48 @@
+<section class="view intro-2">
+  <div class="white-text">
+    <br />
+  </div>
+
+  <mat-card class="content">
+    <mat-card-header style="display: ruby-text">
+      <h1 style="font-weight: bold">Welcome Back Again</h1>
+      <br />
+      <div style="font-size: 15px">Please Enter Your Detail</div>
+    </mat-card-header>
+    <br />
+    <mat-card-content>
+      <form
+        class="example-form"
+        [formGroup]="loginForm"
+        (ngSubmit)="proceedLogin()"
+      >
+        <mat-form-field class="example-full-width" style="width: 100%">
+          <mat-label>User Name</mat-label>
+          <input matInput formControlName="username" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width: 100%">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" />
+        </mat-form-field>
+        <div style="text-align: end">
+          <button mat-flat-button type="button" (click)="forgotPassword()">
+            Forgot Password
+          </button>
+        </div>
+        <br />
+        <div>
+          <button
+            mat-raised-button
+            color="accent"
+            style="width: 370px; background-color: black"
+            type="submit"
+          >
+            Log In
+          </button>
+        </div>
+      </form>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+</section>

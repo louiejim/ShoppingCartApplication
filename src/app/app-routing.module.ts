@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserModule } from './modules/user/user.module';
 import { ProductModule } from './modules/product/product.module';
 import { AdminModule } from './modules/admin/admin.module';
+import { LoginComponent } from './modules/user/login/login.component';
+import { UserModule } from './modules/user/user.module';
+import { userGuard } from './core/guards/user.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +13,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'user',
+    path: '',
     loadChildren: () =>
       import('./modules/user/user.module').then((m) => UserModule),
   },

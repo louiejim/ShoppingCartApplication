@@ -17,7 +17,6 @@
       "sold": 3
     }
   ],
-
   "users": [
     {
       "id": 1,
@@ -29,8 +28,12 @@
       "middleName": "cruz",
       "lastName": "Doe",
       "birthdate": "1990-01-01",
-      "interests": ["Interest1", "Interest2"],
-      "isAdmin": false
+      "interests": [
+        "Interest1",
+        "Interest2"
+      ],
+      "isAdmin": false,
+      "isActive": true
     },
     {
       "id": 2,
@@ -42,11 +45,14 @@
       "middleName": "cruz",
       "lastName": "Doe",
       "birthdate": "1995-05-05",
-      "interests": ["Interest3", "Interest4"],
-      "isAdmin": true
+      "interests": [
+        "Interest3",
+        "Interest4"
+      ],
+      "isAdmin": true,
+      "isActive": true
     }
   ],
-  
   "orders": [
     {
       "id": 1,
@@ -79,6 +85,4 @@
       "status": "in-cart"
     }
   ]
-  
-  
 }

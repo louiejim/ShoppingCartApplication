@@ -18,18 +18,20 @@ export class UserService {
   getbyUserName(username: any) {
     return this.http.get<Users[]>(`${this.baseUrl}/users?username=${username}`);
   }
+  //http://localhost:3000/users?username=user1&email=user1@example.com&mobile=1234567890
 
-  createUser(user: Users) {
-    return this.http.post(`${this.baseUrl}/users`, user);
+  getForgotPassword(username: any, email: any, mobile: any) {
+    return this.http.get<Users[]>(
+      `${this.baseUrl}/users?username=${username}&email=${email}&mobile=${mobile}`
+    );
   }
+  // createUser(user: Users) {
+  //   return this.http.post(`${this.baseUrl}/users`, user);
+  // }
 
-  updateUser(user: Users, id: number) {
-    return this.http.put(`${this.baseUrl}/users/${id}`, user);
-  }
-
-  login(username: string) {
-    return this.http.post<any>(`${this.baseUrl}/users`, { username });
-  }
+  // updateUser(user: Users, id: number) {
+  //   return this.http.put(`${this.baseUrl}/users/${id}`, user);
+  // }
 
   isLogin() {
     return sessionStorage.getItem('username') != null;

@@ -8,9 +8,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { UserPasswordComponent } from './user-password/user-password.component';
+import { MatIconModule } from '@angular/material/icon';
+import { PasswordComponent } from './user-password/password/password.component';
 
 @NgModule({
-  declarations: [LoginComponent, UserPasswordComponent],
+  declarations: [LoginComponent, UserPasswordComponent, PasswordComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
@@ -19,6 +21,7 @@ import { UserPasswordComponent } from './user-password/user-password.component';
     MatCardModule,
     MatButton,
     RouterLink,
+    MatIconModule,
   ],
 })
 export class UserModule {}

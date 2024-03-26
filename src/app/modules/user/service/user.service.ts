@@ -11,13 +11,10 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getAll() {
-    return this.http.get(`${this.baseUrl}/users`);
-  }
-
   getbyUserName(username: any) {
     return this.http.get<Users[]>(`${this.baseUrl}/users?username=${username}`);
   }
+
   //http://localhost:3000/users?username=user1&email=user1@example.com&mobile=1234567890
 
   getForgotPassword(username: any, email: any, mobile: any) {
@@ -25,15 +22,21 @@ export class UserService {
       `${this.baseUrl}/users?username=${username}&email=${email}&mobile=${mobile}`
     );
   }
-  // createUser(user: Users) {
-  //   return this.http.post(`${this.baseUrl}/users`, user);
-  // }
+
+  getAll() {
+    return this.http.get(`${this.baseUrl}/users`);
+  }
+
 
   // updateUser(user: Users, id: number) {
   //   return this.http.put(`${this.baseUrl}/users/${id}`, user);
   // }
 
-  isLogin() {
-    return sessionStorage.getItem('username') != null;
+  isLogin() :boolean {
+    return sessionStorage.getItem('username')!=null
+  }
+  
+  getUserRole(){
+    return sessionStorage.getItem('')!=null?sessionStorage.getItem('userrole')?.toString():''
   }
 }

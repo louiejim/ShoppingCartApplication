@@ -9,6 +9,6 @@ export interface Users {
   lastName: string;
   birthdate: Date;
   interest: string[];
-  isAdmin: boolean;
+  role:string;
   isActive: boolean;
 }

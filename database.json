@@ -32,7 +32,7 @@
         "Interest1",
         "Interest2"
       ],
-      "isAdmin": false
+      "role":"admin"
     },
     {
       "id": 2,
@@ -48,7 +48,7 @@
         "Interest3",
         "Interest4"
       ],
-      "isAdmin": true
+      "role":"user"
     }
   ],
   "orders": [

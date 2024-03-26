@@ -19,10 +19,6 @@ const routes: Routes = [
     path: 'password',
     component: UserPasswordComponent,
   },
-  {
-    path: 'valid',
-    component: PasswordComponent,
-  },
 ];
 
 @NgModule({

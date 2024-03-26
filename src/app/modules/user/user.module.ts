@@ -7,9 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
+import { UserPasswordComponent } from './user-password/user-password.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, UserPasswordComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

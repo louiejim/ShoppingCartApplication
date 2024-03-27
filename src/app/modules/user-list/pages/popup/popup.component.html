@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-header>
+        <h4>Edit Role</h4>
+    </mat-card-header>
+        <form class="example-form" [formGroup]="Form" (ngSubmit)="update()">
+            <mat-card-content>
+                <mat-form-field class="example-full-width" style="width: 500px;">
+                    <mat-label>Role</mat-label>
+                    <mat-select formControlName="role">
+                        <mat-option value="">--Select Role--</mat-option>
+                      <mat-option *ngFor="let roles of role" [value]="roles.code">
+                        {{ roles.name }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <div >
+                    <button
+                    mat-raised-button
+                    color="accent"
+                    style=" background-color: rebeccapurple ; "
+                    type="submit"
+                  >
+                    Update
+                  </button>
+               
+                </div>
+                
+                </mat-card-content>
+                
+        </form>
+        
+
+</mat-card>
+
+

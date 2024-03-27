@@ -28,11 +28,8 @@
       "middleName": "cruz",
       "lastName": "Doe",
       "birthdate": "1990-01-01",
-      "interests": [
-        "Interest1",
-        "Interest2"
-      ],
-      "role":"admin"
+      "interests": ["Interest1", "Interest2"],
+      "role": "admin"
     },
     {
       "id": 2,
@@ -44,11 +41,8 @@
       "middleName": "cruz",
       "lastName": "Doe",
       "birthdate": "1995-05-05",
-      "interests": [
-        "Interest3",
-        "Interest4"
-      ],
-      "role":"user"
+      "interests": ["Interest3", "Interest4"],
+      "role": "user"
     }
   ],
   "orders": [
@@ -81,6 +75,16 @@
         }
       ],
       "status": "in-cart"
+    }
+  ],
+  "role": [
+    {
+      "code": "user",
+      "name": "user"
+    },
+    {
+      "code": "admin",
+      "name": "admin"
     }
   ]
 }

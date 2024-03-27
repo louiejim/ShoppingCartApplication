@@ -1,14 +1,13 @@
 export interface Users {
-  id: number;
+  id:  string;
   username: string;
   password: string;
   email: string;
-  mobile: number;
+  mobile: number ;
   firstName: string;
   middleName: string;
   lastName: string;
-  birthdate: Date;
+  birthdate: Date ;
   interest: string[];
   role:string;
-  isActive: boolean;
 }

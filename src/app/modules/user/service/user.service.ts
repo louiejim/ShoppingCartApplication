@@ -12,9 +12,12 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getbyUserName(username: any) {
+
     return this.http.get<Users[]>(`${this.baseUrl}/users?username=${username}`);
+
   }
 
+  
   //http://localhost:3000/users?username=user1&email=user1@example.com&mobile=1234567890
 
   getForgotPassword(username: any, email: any, mobile: any) {
@@ -27,10 +30,20 @@ export class UserService {
     return this.http.get(`${this.baseUrl}/users`);
   }
 
+  gerRole(){
+    return this.http.get(`${this.baseUrl}/role`)
+  }
 
-  // updateUser(user: Users, id: number) {
-  //   return this.http.put(`${this.baseUrl}/users/${id}`, user);
-  // }
+  updateUser(user: Users, id: any) {
+    return this.http.put(`${this.baseUrl}/users/${id}`, user);
+  }
+  
+
+  getbyUserById(id: any) {
+
+    return this.http.get<Users[]>(`${this.baseUrl}/users?id=${id}`);
+    
+  }
 
   isLogin() :boolean {
     return sessionStorage.getItem('username')!=null

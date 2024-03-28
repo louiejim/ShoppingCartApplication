@@ -5,7 +5,7 @@
       aria-label="person icon"
       fontIcon="person"
     ></mat-icon>
-    <a class="navbar-brand" routerLink="/admin">{{ firstname }}</a>
+    <a class="navbar-brand" routerLink="/dashboard">{{ firstname }}</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -20,7 +20,9 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home Page</a>
+          <a class="nav-link active" aria-current="page" routerLink="/dashboard"
+            >Dash Board</a
+          >
         </li>
         <li class="nav-item">
           <a

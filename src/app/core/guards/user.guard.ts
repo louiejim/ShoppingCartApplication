@@ -11,6 +11,7 @@ export const userGuard: CanActivateFn = (route, state) => {
   if (service.isLogin()) {
     return true;
   } else {
+    toastr.error('please log in...');
     router.navigate(['']);
     return false;
   }

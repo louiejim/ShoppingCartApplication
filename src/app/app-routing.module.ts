@@ -5,6 +5,8 @@ import { AdminModule } from './modules/admin/admin.module';
 import { UserModule } from './modules/user/user.module';
 import { userGuard } from './core/guards/user.guard';
 import { UserListModule } from './modules/user-list/user-list.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { userlistGuard } from './core/guards/userlist.guard';
 
 const routes: Routes = [
   {
@@ -24,14 +26,16 @@ const routes: Routes = [
       import('./modules/product/product.module').then((m) => ProductModule),
   },
   {
-    path: 'admin',
+    path: 'dashboard',
     canActivate: [userGuard],
     loadChildren: () =>
-      import('./modules/admin/admin.module').then((m) => AdminModule),
+      import('./modules/dashboard/dashboard.module').then(
+        (m) => DashboardModule
+      ),
   },
   {
     path: 'userlist',
-    canActivate: [userGuard],
+    canActivate: [userlistGuard],
     loadChildren: () =>
       import('./modules/user-list/user-list.module').then(
         (m) => UserListModule

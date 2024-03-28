@@ -52,7 +52,7 @@ export class LoginComponent {
           sessionStorage.setItem('username', tempusername);
           sessionStorage.setItem('role', userRole);
           sessionStorage.setItem('firstname', firstname);
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/dashboard']);
         } else {
           this.toastr.error('Invalid Login');
         }

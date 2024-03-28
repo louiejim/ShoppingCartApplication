@@ -51,7 +51,7 @@ export class LoginComponent {
           this.toastr.success('Login Success');
           sessionStorage.setItem('username', tempusername);
           sessionStorage.setItem('role', userRole);
-          sessionStorage.setItem('firstname',firstname);
+          sessionStorage.setItem('firstname', firstname);
           this.router.navigate(['/admin']);
         } else {
           this.toastr.error('Invalid Login');

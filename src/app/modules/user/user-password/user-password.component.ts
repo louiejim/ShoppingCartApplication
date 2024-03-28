@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './user-password.component.html',
   styleUrl: './user-password.component.scss',
 })
-export class UserPasswordComponent  {
+export class UserPasswordComponent {
   constructor(
     private toastr: ToastrService,
     private fb: FormBuilder,
@@ -26,7 +26,6 @@ export class UserPasswordComponent  {
   pass: any;
 
   checkPassword() {
-
     const username = this.forgotForm.value.username;
     const email = this.forgotForm.value.email;
     const mobile = this.forgotForm.value.mobile;
@@ -45,7 +44,7 @@ export class UserPasswordComponent  {
           temptpassword = m.password;
         });
         if (temptuser && temptemail && temptmobile) {
-          this.pass=temptpassword
+          this.pass = temptpassword;
           this.toastr.success('Success');
         } else {
           this.toastr.error('Attempt is invalid');
@@ -55,7 +54,6 @@ export class UserPasswordComponent  {
       this.toastr.error('Attempt is invalid');
     }
   }
-
 
   back() {
     this.router.navigate(['']);

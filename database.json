@@ -19,31 +19,70 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
+      "username": "admin",
+      "password": "admin",
+      "email": "admin@gmail.com",
+      "mobile": "0123456789",
+      "firstName": "AdminUser",
+      "middleName": "",
+      "lastName": "Admin",
+      "birthdate": "1995-05-05",
+      "interests": [
+        "Interest39",
+        "Interest48"
+      ],
+      "role": "admin"
+    },
+     {
+      "id": "4",
       "username": "user1",
       "password": "password1",
       "email": "user1@example.com",
+      "mobile": "123456789",
+      "firstName": "James",
+      "middleName": "cruz",
+      "lastName": "Dejesus",
+      "birthdate": "1990-01-01",
+      "interests": [
+        "Interest1",
+        "Interest2"
+      ],
+      "role": "user"
+    },
+    {
+      "id": "2",
+      "username": "user2",
+      "password": "password2",
+      "email": "user1@example.com",
       "mobile": "1234567890",
-      "firstName": "John",
+      "firstName": "Louie",
       "middleName": "cruz",
       "lastName": "Doe",
       "birthdate": "1990-01-01",
-      "interests": ["Interest1", "Interest2"],
-      "role": "admin"
+      "interests": [
+        "Interest1",
+        "Interest2"
+      ],
+      "role": "user"
     },
     {
-      "id": 2,
-      "username": "user2",
-      "password": "password2",
+      "id": "3",
+      "username": "user3",
+      "password": "password3",
       "email": "user2@example.com",
       "mobile": "9876543210",
       "firstName": "Jane",
       "middleName": "cruz",
       "lastName": "Doe",
       "birthdate": "1995-05-05",
-      "interests": ["Interest3", "Interest4"],
+      "interests": [
+        "Interest3",
+        "Interest4"
+      ],
       "role": "user"
     }
+   
   ],
   "orders": [
     {

@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit, inject } from '@angular/core';
 import { UserService } from '../../../user/service/user.service';
-import { FormBuilder, NonNullableFormBuilder, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Users } from '../../../../shared/model/users.interface';
+import { FormBuilder } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-popup',
@@ -14,57 +14,56 @@ export class PopupComponent implements OnInit {
   constructor(
     private service: UserService,
     private builder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public value: any
+    @Inject(MAT_DIALOG_DATA) public value: any,
+    private toastr: ToastrService,
+    private dialog: MatDialogRef<PopupComponent> //component of the popup
   ) {}
-
-
-  user: Users | undefined;
   ngOnInit(): void {
     this.service.gerRole().subscribe((m) => {
       this.role = m;
     });
-
-
     if (this.value.code != null && this.value.code != '') {
-      this.service.getbyUserById(this.value.code).subscribe((m) => {
-        
-        m.map((m) => {
-          // setting value to the form from api call
-          this.user = m;
+      this.service.getbyUserById(this.value.code).subscribe((x) => {
+        x.map((m) => {
           this.Form.setValue({
-              id:this.user.id,
-            username: this.user.username,
-            password: this.user.password,
-            email: this.user.email,
-            mobile: String(this.user.mobile),
-            firstName: this.user.firstName,
-            middleName: this.user.middleName,
-            lastName: this.user.lastName,
-            birthdate: String(this.user.birthdate),
-            interest: [],
-            role: this.user.role,
-          });          
+            id: m.id,
+            username: m.username,
+            password: m.password,
+            email: m.email,
+            mobile: m.mobile,
+            firstName: m.firstName,
+            middleName: m.middleName,
+            lastName: m.lastName,
+            birthdate: m.birthdate,
+            interests: m.interests,
+            role: m.role,
+          });
         });
       });
     }
   }
-
+  //form
   Form = this.builder.group({
-    id:"",
-    username: this.builder.control(''),
-    password: this.builder.control(''),
-    email: this.builder.control(''),
-    mobile: this.builder.control(''),
-    firstName: this.builder.control(''),
-    middleName: this.builder.control(''),
-    lastName: this.builder.control(''),
-    birthdate: this.builder.control(''),
-    interest: this.builder.array([]),
-    role: this.builder.control('', Validators.required),
+    id: '',
+    username: '',
+    password: '',
+    email: '',
+    mobile: 0,
+    firstName: '',
+    middleName: '',
+    lastName: '',
+    birthdate: new Date(),
+    interests: new Array(),
+    role: this.builder.control(''),
   });
 
   update() {
-    // this.user=this.Form.value
-    console.log(this.Form.value);
+    const value = this.Form.value;
+    if (value.role?.length != 0) {
+      this.service.updateUser(value, value.id).subscribe((m) => {
+        this.toastr.success('Updated successfully.');
+        this.dialog.close(); //closing the pop up
+      });
+    }
   }
 }

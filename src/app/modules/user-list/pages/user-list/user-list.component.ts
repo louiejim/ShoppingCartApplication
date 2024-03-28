@@ -21,6 +21,7 @@ export class UserListComponent {
 
   userList: any;
   dataSource: any;
+
   loadUser() {
     this.service.getAll().subscribe((res) => {
       this.userList = res;
@@ -29,6 +30,7 @@ export class UserListComponent {
       this.dataSource.sort = this.sort;
     });
   }
+
   displayedColumns: string[] = [
     'username',
     'firstName',
@@ -39,13 +41,18 @@ export class UserListComponent {
   ];
 
   updateUser(id: any) {
-    this.dialog.open(PopupComponent, {
+    const popup = this.dialog.open(PopupComponent, {
       enterAnimationDuration: '500ms',
       exitAnimationDuration: '500ms',
-      width: '40%',
+      width: '25%',
       data: {
         code: id,
       },
+    });
+
+    //after close the pop up
+    popup.afterClosed().subscribe((res) => {
+      this.loadUser();
     });
   }
 }

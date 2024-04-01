@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Component, ViewChild, viewChild } from '@angular/core';
 import { UserService } from '../../../user/service/user.service';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
@@ -44,7 +45,7 @@ export class UserListComponent {
     const popup = this.dialog.open(PopupComponent, {
       enterAnimationDuration: '500ms',
       exitAnimationDuration: '500ms',
-      width: '25%',
+      width: '23%',
       data: {
         code: id,
       },

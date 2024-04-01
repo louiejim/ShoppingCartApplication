@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header style="text-align: center">
+    <h3>Are You Sure You want to delete ?</h3>
+  </mat-card-header>
+  <br />
+  <mat-card-content>
+    <section>
+      <div class="example-button-row" style="margin-left: 60px">
+        <button
+          mat-raised-button
+          color="accent"
+          style="background-color: rebeccapurple"
+          type="button"
+          (click)="delete()"
+        >
+          Yes
+        </button>
+        <button mat-flat-button color="basic" type="button" (click)="back()">
+          No
+        </button>
+      </div>
+    </section>
+  </mat-card-content>
+</mat-card>

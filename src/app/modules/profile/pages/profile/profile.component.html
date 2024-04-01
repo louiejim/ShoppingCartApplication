@@ -1,0 +1,131 @@
+<app-header></app-header>
+<div class="main-div">
+  <mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <img class="header-image" src="assets/Logo.JPG" alt="" />
+      </div>
+      <mat-card-title>{{ user?.firstName }}</mat-card-title>
+      <mat-card-subtitle>{{ user?.email }}</mat-card-subtitle>
+    </mat-card-header>
+    <br />
+    <mat-card-content>
+      <div>
+        First Name: {{ user?.firstName }}
+        <br />
+        Last Name: {{ user?.lastName }}
+      </div>
+      <br />
+      <div *ngIf="!isEnable">
+        <button
+          mat-raised-button
+          color="primary"
+          style="width: 200px"
+          (click)="toggleInputEnable()"
+        >
+          Edit Information
+        </button>
+      </div>
+      <div *ngIf="isEnable">
+        <button
+          mat-raised-button
+          color="primary"
+          style="width: 200px"
+          (click)="toggleInputDisble()"
+        >
+          Back
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="child-div">
+    <mat-card-header>
+      <div>
+        <h2>EDIT INFORMATION</h2>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="example-form" [formGroup]="form" (ngSubmit)="submit()">
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Middle Name</mat-label>
+            <input matInput formControlName="middleName" />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" />
+          </mat-form-field>
+        </div>
+        <br />
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" style="width: 645px">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+          </mat-form-field>
+        </div>
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Birth Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="birthdate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <br />
+        <br />
+        <br />
+
+        <ng-container formArrayName="interests">
+          <label for="interests" style="margin-bottom: 30px; font-weight: bold">
+            Interest</label
+          >
+          <div
+            class="input-group mb-3"
+            *ngFor="let _ of itemsFormArray.controls; index as i"
+          >
+            <input [formControlName]="i" class="form-control" />
+            <div *ngIf="isEnable">
+              <button (click)="delete(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </ng-container>
+        <div *ngIf="isEnable">
+          <button (click)="add()" type="button">Add interest</button>
+        </div>
+
+        <div *ngIf="isEnable">
+          <button
+            mat-raised-button
+            color="primary"
+            class="bottom-right-button"
+            type="submit"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

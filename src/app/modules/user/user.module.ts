@@ -10,7 +10,6 @@ import { RouterLink } from '@angular/router';
 import { UserPasswordComponent } from './user-password/user-password.component';
 import { MatIconModule } from '@angular/material/icon';
 import { PasswordComponent } from './user-password/password/password.component';
-
 @NgModule({
   declarations: [LoginComponent, UserPasswordComponent, PasswordComponent],
   imports: [
@@ -23,5 +22,6 @@ import { PasswordComponent } from './user-password/password/password.component';
     RouterLink,
     MatIconModule,
   ],
+  exports: [LoginComponent],
 })
 export class UserModule {}

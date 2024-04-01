@@ -1,0 +1,38 @@
+.header-image {
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.card {
+  border-left: 50px;
+  width: 15%;
+  max-width: 40%;
+  margin-top: 2%;
+  height: 10%;
+}
+.main-div {
+  display: flex;
+  width: 100%;
+  margin-left: 10%;
+}
+
+.child-div {
+  margin-top: 2%;
+  display: flex;
+  margin-left: 100px;
+}
+
+.example-full-width {
+  margin-top: 20px;
+  margin-right: 40px;
+  width: 300px;
+}
+
+.bottom-right-button {
+  position: absolute;
+  right: 6%;
+  top: 2%;
+}

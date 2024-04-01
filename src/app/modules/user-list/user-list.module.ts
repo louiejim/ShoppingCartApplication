@@ -9,7 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSortModule } from '@angular/material/sort';
 import { PopupComponent } from './pages/popup/popup.component';
-import { MatSelectModule} from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -24,8 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatSortModule,
     MatSelectModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
   ],
 })
 export class UserListModule {}

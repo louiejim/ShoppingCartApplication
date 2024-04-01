@@ -1,40 +1,58 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <mat-icon
-      aria-hidden="false"
-      aria-label="person icon"
-      fontIcon="person"
-    ></mat-icon>
-    <a class="navbar-brand" routerLink="/dashboard">{{ firstname }}</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<mat-toolbar>
+  <img class="img-reponsive" src="assets/Capture.JPG" />
+  <span class="title">Shopping Cart</span>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="navbar-collapse" id="navbarText">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/dashboard"
-            >Dash Board</a
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/dashboard"
+            [routerLinkActive]="['router-link-active']"
           >
+            <mat-icon style="padding-top: 3px">dashboard</mat-icon>
+            Dash Board
+          </a>
         </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/profile"
+            [routerLinkActive]="['router-link-active']"
+          >
+            <mat-icon style="padding-top: 3px">person</mat-icon>
+            Profile
+          </a>
+        </li>
+
         <li class="nav-item">
           <a
             *ngIf="userRole === 'admin'"
             class="nav-link"
-            [routerLink]="['/userlist']"
-            routerLinkActive="router-link-active"
-            >User Role</a
+            routerLink="/userlist"
+            [routerLinkActive]="['router-link-active']"
+          >
+            <mat-icon style="padding-top: 3px">manage_accounts</mat-icon>
+            User Role</a
           >
         </li>
       </ul>
-      <span class="navbar-text"> Navbar text with an inline element </span>
     </div>
+  </nav>
+  <span class="example-spacer"></span>
+  <div>
+    <button
+      mat-icon-button
+      class="material-symbols-outlined"
+      (click)="logout()"
+    >
+      <mat-icon
+        ><span class="material-symbols-outlined"> logout </span></mat-icon
+      >
+    </button>
   </div>
-</nav>
+</mat-toolbar>

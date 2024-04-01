@@ -1,0 +1,96 @@
+.product {
+  border: 1px solid;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+h3 {
+  margin-top: 0;
+}
+
+.form-control {
+  border-radius: 3px;
+  width: 600px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.search-icon {
+  position: absolute;
+  z-index: 20;
+  margin-top: -2.7%;
+  right: 74.2%;
+}
+
+.cart-icon {
+  position: absolute;
+  z-index: 50;
+  margin-top: -3.5%;
+  right: 5%;
+}
+.card-top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: white;
+  background-clip: border-box;
+}
+.item img {
+  width: 90px;
+}
+.item {
+  margin: 0px 70px;
+  //   text-align: center;
+}
+
+//adding sliders for header
+.container {
+  overflow: hidden;
+  text-align: center;
+}
+
+.slider {
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+}
+
+.slides {
+  display: flex;
+  scroll-snap-align: start;
+  margin: 0px 70px;
+}
+
+.slides img {
+  flex: 0 0 auto;
+  width: 120px;
+  height: auto;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.slides img:hover {
+  transform: scale(1.2);
+}
+
+// cards for products
+.card {
+  padding: 20px;
+  margin: 50px;
+}
+.card img {
+  height: 0 0 auto;
+  width: 200px;
+  margin-bottom: 15px;
+  margin-left: 40px;
+  transition: transform 0.5s ease;
+}
+.card img:hover {
+  transition: 0.3s ease-out;
+  transform: scale(1.1);
+}

@@ -1,10 +1,8 @@
-import { Users } from './../../../shared/model/users.interface';
-import { filter, map, Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../service/user.service';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -39,19 +37,19 @@ export class LoginComponent {
 
       let userRole: string;
       let tempusername: string;
-      let firstname: string;
+      let id: string;
       this.service.getbyUserName(username).subscribe((m) => {
         m.map((m) => {
           userRole = m.role;
           tempusername = m.username;
-          firstname = m.firstName;
+          id = m.id;
         });
         const result = m.filter((x) => x.password === password);
         if (result.length === 1) {
           this.toastr.success('Login Success');
           sessionStorage.setItem('username', tempusername);
           sessionStorage.setItem('role', userRole);
-          sessionStorage.setItem('firstname', firstname);
+          sessionStorage.setItem('id', id);
           this.router.navigate(['/dashboard']);
         } else {
           this.toastr.error('Invalid Login');

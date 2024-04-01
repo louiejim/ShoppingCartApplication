@@ -1,0 +1,37 @@
+.slides {
+  //   display: flex;
+  scroll-snap-align: start;
+  margin: 5px 70px;
+}
+
+.slides img {
+  width: 120px;
+  margin-right: 10px;
+  transition: transform 0.5s ease;
+}
+
+.slides img:hover {
+  transform: scale(1.2);
+}
+
+.OaFP0p {
+  color: #757575;
+  margin-top: 16px;
+}
+.items-center {
+  align-items: center;
+}
+.flex,
+.h-center {
+  display: flex;
+  margin-left: 30px;
+}
+.quantity {
+  align-items: center;
+  color: #757575;
+  flex-shrink: 0;
+  font-size: inherit;
+  font-weight: 400;
+  margin: 0;
+  width: 100px;
+}

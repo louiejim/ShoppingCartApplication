@@ -1,20 +1,58 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Product 1",
-      "category": "Category A",
-      "price": 10.99,
-      "quantity_available": 100,
-      "sold": 30
+      "id": "1",
+      "name": "PREDATOR HELIOS 16",
+      "category": "laptop",
+      "description": "This is a laptop",
+      "price": 105999,
+      "sold": 30,
+      "img": "https://images.acer.com/is/image/acer/predator-helios-16-ph16-72-perkey-backlit-on-wp-black-01-1?$Series-Component-M1-M2-S$"
     },
     {
-      "id": 2,
-      "name": "Product 2",
-      "category": "Category B",
+      "id": "2",
+      "name": "Acer Bluetooth Keyboard and Mouse KM501",
+      "category": "keyboard",
+      "description": "This is a laptop",
+      "price": 20.49,
+      "sold": 3,
+      "img": "https://images.acer.com/is/image/acer/AAK123-04?$Series-Component-M1-M2-S$"
+    },
+    {
+      "id": "3",
+      "name": "Acer Bluetooth Keyboard and Mouse KM501",
+      "category": "mouse",
+      "description": "This is a laptop",
+      "price": 20.49,
+      "sold": 5,
+      "img": "https://images.acer.com/is/image/acer/acer_mouse_amr020_01?$Series-Component-M1-M2-S$"
+    },
+    {
+      "id": "4",
+      "name": "Enduro",
+      "category": "tablet",
       "price": 20.49,
       "quantity_available": 50,
-      "sold": 3
+      "sold": 3,
+      "img": "https://images.acer.com/is/image/acer/ENDURO-Urban-T3-EUT310A-11A-wallpaper-UI-polaris-blue-06-7?$Line-Overview-M1-M2-S$"
+    },
+    {
+      "id": "5",
+      "name": "A15-51M-56E2 - Laptops | Acer",
+      "category": "laptop",
+      "price": 20.49,
+      "quantity_available": 50,
+      "sold": 3,
+      "img": "https://images.acer.com/is/image/acer/Swift-Go-14-1?$Product-Cards-S$"
+    },
+    {
+      "id": "6",
+      "name": "KG251Q Zbmiip",
+      "category": "monitor",
+      "price": 20.49,
+      "quantity_available": 50,
+      "sold": 3,
+      "img": "https://images.acer.com/is/image/acer/Acer-Nitro_KG1-series_KG251QZ_wp_01-1?$Product-Cards-S$"
     }
   ],
   "users": [
@@ -25,24 +63,25 @@
       "email": "admin@gmail.com",
       "mobile": "0123456789",
       "firstName": "AdminUser",
-      "middleName": "",
+      "middleName": "Admin",
       "lastName": "Admin",
-      "birthdate": "1995-05-05",
+      "birthdate": "1995-05-17T16:00:00.000Z",
       "interests": [
-        "Interest39",
-        "Interest48"
+        "Interest39123",
+        "Interest48",
+        "interest123456789"
       ],
       "role": "admin"
     },
-     {
+    {
       "id": "4",
       "username": "user1",
       "password": "password1",
       "email": "user1@example.com",
       "mobile": "123456789",
       "firstName": "James",
-      "middleName": "cruz",
-      "lastName": "Dejesus",
+      "middleName": "test",
+      "lastName": "Hernandez",
       "birthdate": "1990-01-01",
       "interests": [
         "Interest1",
@@ -56,13 +95,14 @@
       "password": "password2",
       "email": "user1@example.com",
       "mobile": "1234567890",
-      "firstName": "Louie",
+      "firstName": "JHEZMARK",
       "middleName": "cruz",
-      "lastName": "Doe",
+      "lastName": "HERNANDEZ ",
       "birthdate": "1990-01-01",
       "interests": [
         "Interest1",
-        "Interest2"
+        "Interest2",
+        "Interest3"
       ],
       "role": "user"
     },
@@ -82,11 +122,10 @@
       ],
       "role": "user"
     }
-   
   ],
   "orders": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 1,
       "products": [
         {
@@ -101,7 +140,7 @@
       "status": "pending"
     },
     {
-      "id": 1,
+      "id": "1",
       "userId": 1,
       "products": [
         {
@@ -119,11 +158,13 @@
   "role": [
     {
       "code": "user",
-      "name": "user"
+      "name": "user",
+      "id": "fc7f"
     },
     {
       "code": "admin",
-      "name": "admin"
+      "name": "admin",
+      "id": "83d6"
     }
   ]
 }

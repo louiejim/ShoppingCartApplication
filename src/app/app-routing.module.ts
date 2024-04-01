@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductModule } from './modules/product/product.module';
-import { AdminModule } from './modules/admin/admin.module';
 import { UserModule } from './modules/user/user.module';
 import { userGuard } from './core/guards/user.guard';
 import { UserListModule } from './modules/user-list/user-list.module';
@@ -19,11 +17,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/user/user.module').then((m) => UserModule),
   },
-
   {
-    path: 'product',
+    path: 'cart',
+    canActivate: [userGuard],
     loadChildren: () =>
-      import('./modules/product/product.module').then((m) => ProductModule),
+      import('./modules/cart/cart.module').then((m) => m.CartModule),
   },
   {
     path: 'dashboard',
@@ -40,6 +38,12 @@ const routes: Routes = [
       import('./modules/user-list/user-list.module').then(
         (m) => UserListModule
       ),
+  },
+  {
+    path: 'profile',
+    canActivate: [userGuard],
+    loadChildren: () =>
+      import('./modules/profile/profile.module').then((m) => m.ProfileModule),
   },
 ];
 

@@ -1,2 +1,110 @@
 <app-header></app-header>
-<p>dashboard works!</p>
+<header>
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="search products"
+      style="width: 25%"
+    />
+    <mat-icon class="search-icon"> search </mat-icon>
+  </div>
+
+  <div class="cart-icon">
+    <span matBadge="{{ number }}" matBadgeOverlap="true">
+      <button
+        mat-icon-button
+        class="material-symbols-outlined"
+        type="button"
+        [routerLink]="['/cart']"
+        routerLinkActive="router-link-active"
+      >
+        <mat-icon
+          ><span class="material-symbols-outlined" style="font-size: 25px">
+            shopping_cart
+          </span></mat-icon
+        >
+      </button>
+    </span>
+  </div>
+</header>
+
+<div class="container">
+  <div class="slider">
+    <div class="slides" (click)="getAllProduct()">
+      <a>
+        <img src="assets/allproduct.JPG" alt="all product" />
+        <h6 style="margin-top: 20px">All Products</h6>
+      </a>
+    </div>
+
+    <div class="slides" (click)="getProductByCategory('laptop')">
+      <a>
+        <img
+          src="https://static-ecpa.acer.com/media/catalog/product/a/c/acer-swift-go-14-sfg14-72-72t-with-fingerprint-with-backlit-on-wallpaper-pure-silver-01-1000x1000_nx.kr0aa.002.png?optimize=high&bg-color=255,255,255&fit=bounds&height=500&width=500&canvas=500:500&format=jpeg"
+          alt="Laptop"
+        />
+        <h6 style="margin-top: 10px">Laptop</h6>
+      </a>
+    </div>
+
+    <div class="slides" (click)="getProductByCategory('monitor')">
+      <a>
+        <img
+          src="https://static-ecpa.acer.com/media/catalog/product/e/2/e200q_02-wp_um.ie0aa.004.png?optimize=high&bg-color=255,255,255&fit=bounds&height=320&width=320&canvas=320:320&format=jpeg"
+          alt="monitor"
+        />
+        <h6 style="margin-top: 10px">Monitor</h6>
+      </a>
+    </div>
+
+    <div class="slides" (click)="getProductByCategory('tablet')">
+      <a>
+        <img
+          src="https://static-ecpa.acer.com/media/catalog/product/a/c/acer-iconia-tab-m10-m10-11-wallpaper-02-1000x1000_nt.lftaa.001.png?optimize=high&bg-color=255,255,255&fit=bounds&height=320&width=320&canvas=320:320&format=jpeg"
+          alt="Tablet"
+        />
+        <h6 style="margin-top: 10px">Tablet</h6>
+      </a>
+    </div>
+    <div
+      class="slides"
+      style="margin-top: 25px"
+      (click)="getProductByCategory('keyboard')"
+    >
+      <a>
+        <img
+          src="https://images.acer.com/is/image/acer/Predator-keyboard-aethon700-03?$Line-Overview-M1-M2-S$"
+          alt="Keyboard"
+        />
+        <h6 style="margin-top: 10px">Keyboard</h6>
+      </a>
+    </div>
+  </div>
+</div>
+
+<mat-divider></mat-divider>
+<br />
+<div>
+  <div class="container">
+    <div class="row">
+      <ng-container *ngFor="let item of productList">
+        <div class="card col-md-3">
+          <img src="{{ item.img }}" />
+          <h5>{{ item.name }}</h5>
+          <p>{{ item.price | currency : "PHP" }}</p>
+          <section>
+            <button
+              mat-flat-button
+              color="primary"
+              type="button"
+              (click)="addtoCart(item)"
+            >
+              Add to Cart
+            </button>
+          </section>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

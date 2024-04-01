@@ -11,9 +11,18 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { AddcartPopupComponent } from './pages/addcart-popup/addcart-popup.component';
+import { FormsModule } from '@angular/forms';
+import { SearchFilterPipe } from '../pipes/search-filter.pipe';
+import { RangeFilterPipe } from '../pipes/range-filter.pipe';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
-  declarations: [DashboardComponent, AddcartPopupComponent],
+  declarations: [
+    DashboardComponent,
+    AddcartPopupComponent,
+    SearchFilterPipe,
+    RangeFilterPipe,
+  ],
   imports: [
     CommonModule,
     DashboardRouterModule,
@@ -25,6 +34,8 @@ import { AddcartPopupComponent } from './pages/addcart-popup/addcart-popup.compo
     MatCardModule,
     MatSidenavModule,
     RouterModule,
+    FormsModule,
+    MatSelectModule,
   ],
 })
 export class DashboardModule {}

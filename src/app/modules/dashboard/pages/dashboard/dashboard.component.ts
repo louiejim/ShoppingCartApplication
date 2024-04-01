@@ -1,5 +1,6 @@
+import { filter } from 'rxjs';
 import { DashboardService } from './../../services/dashboard.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../../cart/service/cart.service';
 import { AddcartPopupComponent } from '../addcart-popup/addcart-popup.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -9,13 +10,18 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent implements OnInit {
+  search: string | undefined;
   number: any;
-
+  maxValue: number;
+  minValue: number;
   constructor(
     private api: DashboardService,
     private cartservice: CartService,
     private dialog: MatDialog
-  ) {}
+  ) {
+    this.maxValue = 1000000;
+    this.minValue = 0;
+  }
 
   public productList: any;
 

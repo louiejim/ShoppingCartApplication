@@ -11,10 +11,10 @@
     },
     {
       "id": "2",
-      "name": "Acer Bluetooth Keyboard and Mouse KM501",
+      "name": "Acer Bluetooth Keyboard  KM501",
       "category": "keyboard",
       "description": "This is a laptop",
-      "price": 20.49,
+      "price": 999,
       "sold": 3,
       "img": "https://images.acer.com/is/image/acer/AAK123-04?$Series-Component-M1-M2-S$"
     },
@@ -22,8 +22,8 @@
       "id": "3",
       "name": "Acer Bluetooth Keyboard and Mouse KM501",
       "category": "mouse",
-      "description": "This is a laptop",
-      "price": 20.49,
+      "description": "Wireless keyboard set desktop computer notebook keyboard mouse office use",
+      "price": 448.17,
       "sold": 5,
       "img": "https://images.acer.com/is/image/acer/acer_mouse_amr020_01?$Series-Component-M1-M2-S$"
     },
@@ -31,7 +31,8 @@
       "id": "4",
       "name": "Enduro",
       "category": "tablet",
-      "price": 20.49,
+      "description": "This is a Tablet",
+      "price": 12341,
       "quantity_available": 50,
       "sold": 3,
       "img": "https://images.acer.com/is/image/acer/ENDURO-Urban-T3-EUT310A-11A-wallpaper-UI-polaris-blue-06-7?$Line-Overview-M1-M2-S$"
@@ -40,7 +41,8 @@
       "id": "5",
       "name": "A15-51M-56E2 - Laptops | Acer",
       "category": "laptop",
-      "price": 20.49,
+      "description": "This is a Laptop",
+      "price": 30995,
       "quantity_available": 50,
       "sold": 3,
       "img": "https://images.acer.com/is/image/acer/Swift-Go-14-1?$Product-Cards-S$"
@@ -49,10 +51,21 @@
       "id": "6",
       "name": "KG251Q Zbmiip",
       "category": "monitor",
-      "price": 20.49,
+      "description": "1ms UP TO 165Hz Ergonomic Tilt Widescreen Monitor",
+      "price": 9199,
       "quantity_available": 50,
       "sold": 3,
       "img": "https://images.acer.com/is/image/acer/Acer-Nitro_KG1-series_KG251QZ_wp_01-1?$Product-Cards-S$"
+    },
+    {
+      "id": "7",
+      "name": "Nitro QG1 Gaming Monitor - QG241Y BI",
+      "category": "monitor",
+      "description": "SI PRO MP251 - 25 FHD",
+      "price": 4480,
+      "quantity_available": 50,
+      "sold": 3,
+      "img": "https://static-ecpa.acer.com/media/catalog/product/q/g/qg1_qg271_qg241y_qg221q-wp-01-1000x1000_um.qq1aa.004.png?optimize=high&bg-color=255,255,255&fit=bounds&height=320&width=320&canvas=320:320&format=jpeg"
     }
   ],
   "users": [

@@ -71,7 +71,8 @@
         "Interest48",
         "interest123456789"
       ],
-      "role": "admin"
+      "role": "admin",
+      "active":true
     },
     {
       "id": "4",
@@ -87,7 +88,8 @@
         "Interest1",
         "Interest2"
       ],
-      "role": "user"
+      "role": "user",
+      "active":true
     },
     {
       "id": "2",
@@ -104,7 +106,8 @@
         "Interest2",
         "Interest3"
       ],
-      "role": "user"
+      "role": "user",
+      "active":true
     },
     {
       "id": "3",
@@ -120,7 +123,8 @@
         "Interest3",
         "Interest4"
       ],
-      "role": "user"
+      "role": "user",
+      "active":true
     }
   ],
   "orders": [

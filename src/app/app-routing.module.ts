@@ -45,6 +45,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/profile/profile.module').then((m) => m.ProfileModule),
   },
+  {
+    path: 'product',
+    canActivate: [userlistGuard],
+    loadChildren: () =>
+      import('./modules/product/product.module').then((m) => m.ProductModule),
+  },
 ];
 
 @NgModule({

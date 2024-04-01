@@ -28,6 +28,18 @@
             Profile
           </a>
         </li>
+        <li class="nav-item">
+          <a
+            *ngIf="userRole === 'admin'"
+            class="nav-link"
+            aria-current="page"
+            routerLink="/product"
+            [routerLinkActive]="['router-link-active']"
+          >
+            <mat-icon style="padding-top: 3px">shopping_basket</mat-icon>
+            Products
+          </a>
+        </li>
 
         <li class="nav-item">
           <a

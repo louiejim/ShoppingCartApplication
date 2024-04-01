@@ -1,65 +1,229 @@
 <app-header></app-header>
-<br />
-
-<mat-card>
-  <mat-card-content>
-    <div class="mat-elevation-z8">
-      <table mat-table matSort [dataSource]="dataSource">
-        <!-- username Column -->
-        <ng-container matColumnDef="username">
-          <th mat-header-cell mat-sort-header *matHeaderCellDef>Username</th>
-          <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+<div class="user-list">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="userName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>User Name</th>
+      <td mat-cell *matCellDef="let user">
+        <ng-container *ngIf="!user.editMode">{{ user.username }}</ng-container>
+        <ng-container *ngIf="user.editMode">
+          <input class="input" type="text" [(ngModel)]="user.username" placeholder="Username" required #userName="ngModel">
+          <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="error-message">
+            <p *ngIf="userName.errors?.['required']" class="error-text">Username is required.</p>
+          </div>
         </ng-container>
-
-        <!-- firstName Column -->
-        <ng-container matColumnDef="firstName">
-          <th mat-header-cell mat-sort-header *matHeaderCellDef>First Name</th>
-          <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="password">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Password</th>
+      <td mat-cell *matCellDef="let user">
+        <ng-container *ngIf="!user.editMode">
+          {{ user.password }}
         </ng-container>
-
-        <!-- lastName Column -->
-        <ng-container matColumnDef="lastName">
-          <th mat-header-cell mat-sort-header *matHeaderCellDef>Last Name</th>
-          <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+        <ng-container *ngIf="user.editMode">
+          <input class="input" type="text" [(ngModel)]="user.password" placeholder="password" required #password="ngModel">
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
+            <p *ngIf="password.errors?.['required']" class="error-text">
+              Password is required.
+            </p>
+          </div>
         </ng-container>
-
-        <!-- email Column -->
-        <ng-container matColumnDef="email">
-          <th mat-header-cell mat-sort-header *matHeaderCellDef>Email</th>
-          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+      <td mat-cell *matCellDef="let user">
+        <ng-container *ngIf="!user.editMode">
+          {{ user.firstName }}
         </ng-container>
-
-        <!-- role Column -->
-        <ng-container matColumnDef="role">
-          <th mat-header-cell mat-sort-header *matHeaderCellDef>Role</th>
-          <td mat-cell *matCellDef="let element">{{ element.role }}</td>
+        <ng-container *ngIf="user.editMode">
+          <input class="input" type="text" [(ngModel)]="user.firstName" placeholder="firstName" required #firstName="ngModel">
+          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="error-message">
+            <p *ngIf="firstName.errors?.['required']" class="error-text">
+              Password is required.
+            </p>
+          </div>
         </ng-container>
-
-        <!-- Update Column -->
-        <ng-container matColumnDef="action">
-          <th mat-header-cell mat-sort-header *matHeaderCellDef>Update Role</th>
-          <td mat-cell *matCellDef="let element">
-            <button
-              *ngIf="element.role != 'admin'"
-              (click)="updateUser(element.id)"
-              mat-raised-button
-              color="primary"
-            >
-              Update
-            </button>
-          </td>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+      <td mat-cell *matCellDef="let user">
+        <ng-container *ngIf="!user.editMode">
+          {{ user.lastName }}
         </ng-container>
+        <ng-container *ngIf="user.editMode">
+          <input class="input" type="text" [(ngModel)]="user.lastName" placeholder="lastName" required #lastName="ngModel">
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="error-message">
+            <p *ngIf="lastName.errors?.['required']" class="error-text">
+              Last Name is required.
+            </p>
+          </div>
+        </ng-container>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email Address</th>
+      <td mat-cell *matCellDef="let user">
+        <ng-container *ngIf="!user.editMode">
+          {{ user.email }}
+        </ng-container>
+        <ng-container *ngIf="user.editMode">
+          <input class="input" type="text" [(ngModel)]="user.email" placeholder="email" required #email="ngModel">
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+            <p *ngIf="email.errors?.['required']" class="error-text">
+              Email is required.
+            </p>
+          </div>
+        </ng-container>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="mobile">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone Number</th>
+      <td mat-cell *matCellDef="let user">
+        <ng-container *ngIf="!user.editMode">
+          {{ user.mobile }}
+        </ng-container>
+        <ng-container *ngIf="user.editMode">
+          <input class="input" type="text" [(ngModel)]="user.mobile" placeholder="mobile" required #mobile="ngModel">
+          <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="error-message">
+            <p *ngIf="mobile.errors?.['required']" class="error-text">
+              Mobile is required.
+            </p>
+          </div>
+        </ng-container>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+      <td mat-cell *matCellDef="let user">
+        <ng-container *ngIf="!user.editMode">
+          {{ user.role }}
+        </ng-container>
+        <ng-container *ngIf="user.editMode">
+          <select [(ngModel)]="user.role" required #role="ngModel">
+            <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+          </select>
+          <div *ngIf="role.invalid && (role.dirty || role.touched)" class="error-message">
+            <p *ngIf="role.errors?.['required']" class="error-text">
+              Role is required.
+            </p>
+          </div>
+        </ng-container>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef class="sizewidth">Actions</th>
+      <td class="action-buttons" mat-cell *matCellDef="let user">
+        <ng-container *ngIf="!user.editMode">
+          <button *ngIf="user.role !== 'admin'" class="edit-btn" (click)="toggleEditMode(user)">Edit</button>
+          <ng-container *ngIf="user.active">
+            <button *ngIf="user.role !== 'admin'" class="delete-btn" (click)="deactivateUser(user)">Deactivate</button>
+          </ng-container>
+          <ng-container *ngIf="!user.active">
+            <button class="edit-btn" (click)="activateUser(user)">Activate</button>
+          </ng-container>
+        </ng-container>
+        <ng-container *ngIf="user.editMode">
+          <button class="save-btn" (click)="updateUser(user)" [disabled]="!isFormValid(user)" [class.disabled-btn]="!isFormValid(user)">Save</button>
+          <button class="cancel-btn" (click)="toggleEditMode(user)">Cancel</button>
+        </ng-container>
+      </td>
+    </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
+    <tr mat-header-row *matHeaderRowDef="[ 'userName', 'password', 'firstName', 'lastName', 'email', 'mobile', 'role', 'actions']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['userName', 'password', 'firstName', 'lastName', 'email', 'mobile', 'role', 'actions']"></tr>
+</table>
 
-      <mat-paginator
-        [pageSizeOptions]="[5, 10, 20]"
-        showFirstLastButtons
-        aria-label="Select page of periodic elements"
-      >
-      </mat-paginator>
+  <div *ngIf="confirmationDialogActivate" class="confirmation-modal">
+    <div class="confirmation-dialog">
+      <p>Are you sure you want to Activate this user?</p>
+      <button (click)="confirmActivate()">Yes</button>
+      <button (click)="closeConfirmationDialogActivate()">No</button>
     </div>
-  </mat-card-content>
-</mat-card>
+  </div>
+
+  <div *ngIf="confirmationDialogDeactivate" class="confirmation-modal">
+    <div class="confirmation-dialog">
+      <p>Are you sure you want to Deactivate this user?</p>
+      <button (click)="confirmDeactivate()">Yes</button>
+      <button (click)="closeConfirmationDialogDeactivate()">No</button>
+    </div>
+  </div>
+
+  <div class="new-action-buttons">
+    <button class="toggle-form-btn" (click)="toggleAddUserForm()" *ngIf="!showAddUserForm">Add User</button>
+  </div>
+  
+
+  <div class="add-product-form" *ngIf="showAddUserForm">
+    <form #addUserForm="ngForm" (ngSubmit)="addNewUser()">
+      <label for="Name">Name: </label>
+      <input type="text" [(ngModel)]="newUser.username" username="username" placeholder="Enter Username" required #username="ngModel">
+      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="error-message">
+        <div *ngIf="username.errors?.['required']" class="error-text">
+          Username is required.
+        </div>
+      </div>
+      <label for="password">Password: </label>
+      <input type="text" [(ngModel)]="newUser.password" password="password" placeholder="Enter Password" required #password="ngModel">
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
+        <div *ngIf="password.errors?.['required']" class="error-text">
+          Password is required.
+        </div>
+      </div>
+      <label for="firstName">FirstName: </label>
+      <input type="text" [(ngModel)]="newUser.firstName" firstName="firstName" placeholder="Enter First Name" required #firstName="ngModel">
+      <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="error-message">
+        <div *ngIf="firstName.errors?.['required']" class="error-text">
+          First Name is required.
+        </div>
+      </div>
+      <label for="middleName">MiddleName: </label>
+      <input type="text" [(ngModel)]="newUser.middleName" middleName="middleName" placeholder="Enter Middle Name">
+      <label for="LastName">LastName: </label>
+      <input type="text" [(ngModel)]="newUser.lastName" lastName="lastName" placeholder="Enter Last Name" required #lastName="ngModel">
+      <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="error-message">
+        <div *ngIf="lastName.errors?.['required']" class="error-text">
+          Last Name is required.
+        </div>
+      </div>
+      <label for="email">Email: </label>
+      <input type="text" [(ngModel)]="newUser.email" email="email" placeholder="Enter Email" required #email="ngModel">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+        <div *ngIf="email.errors?.['required']" class="error-text">
+          Email is required.
+        </div>
+      </div>
+      <label for="mobile">Phone Number: </label>
+      <input type="text" [(ngModel)]="newUser.mobile" mobile="mobile" placeholder="Enter Phone Number" required #mobile="ngModel">
+      <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="error-message">
+        <div *ngIf="mobile.errors?.['required']" class="error-text">
+          Phone Number is required.
+        </div>
+      </div>
+      <label for="birthdate">BirthDate: </label>
+      <input type="date" [(ngModel)]="newUser.birthdate" birthdate="birthdate" required #birthdate="ngModel">
+      <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)" class="error-message">
+        <div *ngIf="birthdate.errors?.['required']" class="error-text">
+          BirthDate is required.
+        </div>
+      </div>
+      <label for="interest">Interest: </label>
+  <select [(ngModel)]="newUser.interests" name="interest">
+   <option *ngFor="let interest of interests" [value]="interest">{{ interest }}</option>
+</select>
+
+<label for="role">Role: </label>
+<select [(ngModel)]="newUser.role" name="role">
+  <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+</select>
+
+<label for="active">isActive: </label>
+<select [(ngModel)]="newUser.active" name="active">
+  <option value="true">True</option>
+  <option value="false">False</option>
+</select>
+      <button class="save-btn" [disabled]="!addUserForm.valid" [class.disabled-btn]="addUserForm.invalid">Add User</button>
+      <button class="cancel-btn" (click)="toggleAddUserForm()">Cancel</button>
+    </form>
+</div>

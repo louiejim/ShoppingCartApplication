@@ -1,0 +1,182 @@
+<app-header></app-header>
+
+<mat-card>
+    <mat-card-content>
+  <div class="product-list" matSort class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" >   
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let product">
+          <ng-container *ngIf="!product.editMode">
+            {{ product.name }}
+          </ng-container>
+          <ng-container *ngIf="product.editMode">
+            <input type="text" [(ngModel)]="product.name" placeholder="Name" required #name="ngModel">
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
+              <p *ngIf="name.errors?.['required']" class="error-text">
+                Name is required.
+              </p>
+            </div>
+          </ng-container>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+        <td mat-cell *matCellDef="let product">
+          <ng-container *ngIf="!product.editMode">
+            {{ '₱'+product.price }}
+          </ng-container>
+          <ng-container *ngIf="product.editMode">
+            <input type="number" [(ngModel)]="product.price" placeholder="Price" step="0.01" required #price="ngModel">
+            <div *ngIf="price.invalid && (price.dirty || price.touched)" class="error-message">
+              <div *ngIf="price.errors?.['required']" class="error-text">
+                Price is required.
+              </div>
+            </div>
+          </ng-container>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
+        <td mat-cell *matCellDef="let product">
+          <ng-container *ngIf="!product.editMode">
+            {{ product.category }}
+          </ng-container>
+          <ng-container *ngIf="product.editMode">
+            <select [(ngModel)]="product.category" required #category="ngModel">
+              <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+            </select>
+            <div *ngIf="category.invalid && (category.dirty || category.touched)" class="error-message">
+              <div *ngIf="category.errors?.['required']" class="error-text">
+                Category is required.
+              </div>
+            </div>
+          </ng-container>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="quantity_available">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity Available</th>
+        <td mat-cell *matCellDef="let product">
+          <ng-container *ngIf="!product.editMode">
+            {{ product.quantity_available }}
+          </ng-container>
+          <ng-container *ngIf="product.editMode">
+            <input type="number" [(ngModel)]="product.quantity_available" placeholder="Quantity" pattern="[0-9]*" step="1" required #quantity="ngModel">
+            <div *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)" class="error-message">
+              <div *ngIf="quantity.errors?.['required']" class="error-text">
+                Quantity is required.
+              </div>
+              <div *ngIf="quantity.errors?.['pattern']" class="error-text">
+                Quantity must be a valid number.
+              </div>
+            </div>
+          </ng-container>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="img">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Image</th>
+        <td mat-cell *matCellDef="let product">
+          <ng-container *ngIf="!product.editMode" >
+            <img src= "{{ product.img }}" alt="Product Image" style="width: 60px; height: auto;">
+          </ng-container>
+          <ng-container *ngIf="product.editMode">
+            <input type="text" [(ngModel)]="product.img" placeholder="Image" required #img="ngModel">
+            <div *ngIf="img.invalid && (img.dirty || img.touched)" class="error-message">
+              <p *ngIf="img.errors?.['required']" class="error-text">
+                Image is required.
+              </p>
+            </div>
+          </ng-container>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="sizewidth">Actions</th>
+        <td class="action-buttons" mat-cell *matCellDef="let product">
+          <ng-container *ngIf="!product.editMode">
+            <button class="edit-btn" (click)="toggleEditMode(product)">Edit</button>
+            <button class="delete-btn" (click)="deleteProduct(product)">Delete</button>
+          </ng-container>
+          <ng-container *ngIf="product.editMode">
+            <button class="save-btn" (click)="updateProduct(product)" [disabled]="!isFormValid(product)" [class.disabled-btn]="!isFormValid(product)">Save</button>
+            <button class="cancel-btn" (click)="toggleEditMode(product)">Cancel</button>
+          </ng-container>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="['name', 'price', 'category', 'quantity_available', 'img', 'actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['name', 'price', 'category', 'quantity_available', 'img', 'actions']"></tr>
+    </table>
+    <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+    [length]="dataSource.filteredData.length"
+    [pageSize]="5"
+  >
+  </mat-paginator>
+  </div>
+  </mat-card-content>
+  </mat-card>
+  
+    <div *ngIf="confirmationDialog" class="confirmation-modal">
+      <div class="confirmation-dialog">
+        <p>Are you sure you want to delete this product?</p>
+        <div class="action-buttons">
+            <button class="save-btn" (click)="confirmDelete()">Yes</button>
+        <button class="cancel-btn" (click)="closeConfirmationDialog()">No</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="new-action-buttons">
+      <button class="toggle-form-btn" (click)="toggleAddProductForm()" *ngIf="!showAddProductForm">Add Product</button>
+    </div>
+    
+  
+    <div class="add-product-form" *ngIf="showAddProductForm">
+      <form #addProductForm="ngForm" (ngSubmit)="addNewProduct()">
+        <label for="Name">Name: </label>
+        <input type="text" [(ngModel)]="newProduct.name" name="name" placeholder="Enter Product Name" required #name="ngModel">
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
+          <div *ngIf="name.errors?.['required']" class="error-text">
+            Name is required.
+          </div>
+        </div>
+        <label for="Price">Price: </label>
+        <input type="number" [(ngModel)]="newProduct.price" name="price" placeholder="Price" step="0.01" required #price="ngModel">
+        <div *ngIf="price.invalid && (price.dirty || price.touched)" class="error-message">
+          <div *ngIf="price.errors?.['required']" class="error-text">
+            Price is required.
+          </div>
+        </div>
+        <label for="Category">Category: </label>
+        <select [(ngModel)]="selectedCategory" name="category" required #category="ngModel">
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+        <div *ngIf="category.invalid && (category.dirty || category.touched)" class="error-message">
+          <div *ngIf="category.errors?.['required']" class="error-text">
+            Category is required.
+          </div>
+        </div>
+        <label for="Quantity">Quantity: </label>
+        <input type="number" [(ngModel)]="newProduct.quantity_available" name="quantity_available" placeholder="Quantity" pattern="^[0-9]+$" required #quantity="ngModel">
+        <div *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)" class="error-message">
+          <div *ngIf="quantity.errors?.['required']" class="error-text">
+            Quantity is required.
+          </div>
+          <div *ngIf="quantity.errors?.['pattern']" class="error-text">
+            Quantity must be a valid number.
+          </div>
+        </div>
+        <label for="Image">Image Url: </label>
+        <input type="text" [(ngModel)]="newProduct.img" img="img" placeholder="Enter Product Image Url" required #img="ngModel">
+        <div *ngIf="img.invalid && (img.dirty || img.touched)" class="error-message">
+          <div *ngIf="img.errors?.['required']" class="error-text">
+            Image Url  is required.
+          </div>
+        </div>
+        <label for="Price">Price: </label>
+        <button class="save-btn" [disabled]="!addProductForm.valid" [class.disabled-btn]="addProductForm.invalid">Add Product</button>
+        <button class="cancel-btn" (click)="toggleAddProductForm()">Cancel</button>
+      </form>
+  </div>

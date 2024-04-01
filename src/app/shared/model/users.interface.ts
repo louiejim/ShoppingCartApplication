@@ -10,4 +10,6 @@ export interface Users {
   birthdate: Date;
   interests: string[];
   role: string;
+  editMode?: boolean;
+  active: boolean;
 }

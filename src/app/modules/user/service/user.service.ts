@@ -15,8 +15,6 @@ export class UserService {
     return this.http.get<Users[]>(`${this.baseUrl}/users?username=${username}`);
   }
 
-  //http://localhost:3000/users?username=user1&email=user1@example.com&mobile=1234567890
-
   getForgotPassword(username: any, email: any, mobile: any) {
     return this.http.get<Users[]>(
       `${this.baseUrl}/users?username=${username}&email=${email}&mobile=${mobile}`
@@ -44,7 +42,10 @@ export class UserService {
   }
 
   isLogin(): boolean {
-    return sessionStorage.getItem('username') != null;
+    return (
+      sessionStorage.getItem('username') != null &&
+      sessionStorage.getItem('active') != 'false'
+    );
   }
 
   getUserRole() {

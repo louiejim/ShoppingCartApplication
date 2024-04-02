@@ -21,10 +21,7 @@ export class UserListComponent {
   dataSource!: MatTableDataSource<Users>;
   users: Users[] = [];
   showAddUserForm: boolean = false;
-  roles = [
-    'admin',
-    'user'
-  ];
+  roles = ['admin', 'user'];
   newUser: Users = {
     id: '',
     username: '',
@@ -43,31 +40,41 @@ export class UserListComponent {
   confirmationDialogActivate: boolean = false;
   confirmationDialogDeactivate: boolean = false;
   userToDeactivate: Users | null = null;
-  selectedInterest: string [] = [];
+  selectedInterest: string[] = [];
   interests = [
-    "Fashion and clothing",
-    "Electronics and gadgets",
-    "Home decor and furnishings",
-    "Beauty and skincare products",
-    "Fitness and sports equipment",
-    "Books and stationery",
-    "Cooking and kitchen appliances",
-    "Gardening supplies",
-    "Toys and games",
-    "Collectibles and memorabilia",
-    "DIY and crafting materials",
-    "Outdoor gear and camping equipment",
-    "Pet supplies",
-    "Art and craft supplies",
-    "Musical instruments",
-    "Specialty foods and gourmet items",
-    "Travel accessories",
-    "Sustainable and eco-friendly products",
-    "Vintage and antique items",
-    "Health and wellness products"
+    'Fashion and clothing',
+    'Electronics and gadgets',
+    'Home decor and furnishings',
+    'Beauty and skincare products',
+    'Fitness and sports equipment',
+    'Books and stationery',
+    'Cooking and kitchen appliances',
+    'Gardening supplies',
+    'Toys and games',
+    'Collectibles and memorabilia',
+    'DIY and crafting materials',
+    'Outdoor gear and camping equipment',
+    'Pet supplies',
+    'Art and craft supplies',
+    'Musical instruments',
+    'Specialty foods and gourmet items',
+    'Travel accessories',
+    'Sustainable and eco-friendly products',
+    'Vintage and antique items',
+    'Health and wellness products',
   ];
-  displayedColumns: string[] = ['userName', 'password', 'firstName', 'middleName', 'lastName','email','mobile', 'birthdate','actions'];
-  constructor(private userListService: UserListService) { }
+  displayedColumns: string[] = [
+    'userName',
+    'password',
+    'firstName',
+    'middleName',
+    'lastName',
+    'email',
+    'mobile',
+    'birthdate',
+    'actions',
+  ];
+  constructor(private userListService: UserListService) {}
   userName = sessionStorage.getItem('userName');
   ngOnInit() {
     this.dataSource = new MatTableDataSource<Users>(this.users);
@@ -80,9 +87,9 @@ export class UserListComponent {
   }
 
   getUsers() {
-    this.userListService.getUsers().subscribe(users => {
+    this.userListService.getUsers().subscribe((users) => {
       this.users = users;
-      this.dataSource.data = users; 
+      this.dataSource.data = users;
     });
   }
 
@@ -93,16 +100,22 @@ export class UserListComponent {
     } else {
       if (this.originalUser) {
         Object.assign(user, this.originalUser);
-        this.originalUser = null; 
+        this.originalUser = null;
         user.editMode = false;
       }
     }
   }
 
   isFormValid(user: Users): boolean {
-    return !!user.username && !!user.password && !!user.email && !!user.mobile && !!user.firstName && !!user.lastName;
+    return (
+      !!user.username &&
+      !!user.password &&
+      !!user.email &&
+      !!user.mobile &&
+      !!user.firstName &&
+      !!user.lastName
+    );
   }
-  
 
   addUser(user: Users) {
     this.userListService.addUser(user).subscribe(() => {
@@ -119,7 +132,7 @@ export class UserListComponent {
     this.userListService.updateUser(user).subscribe(() => {
       this.getUsers();
     });
-    user.editMode = false; 
+    user.editMode = false;
   }
 
   deactivateUser(user: Users) {
@@ -134,31 +147,39 @@ export class UserListComponent {
 
   confirmDeactivate() {
     if (this.userToDeactivate) {
-      this.userListService.deactivateUser(this.userToDeactivate.id).subscribe(() => {
-        this.users = this.users.filter(prod => prod.id !== this.userToDeactivate!.id);
-        this.getUsers();
-        this.closeConfirmationDialogDeactivate();
-      });
+      this.userListService
+        .deactivateUser(this.userToDeactivate.id)
+        .subscribe(() => {
+          this.users = this.users.filter(
+            (prod) => prod.id !== this.userToDeactivate!.id
+          );
+          this.getUsers();
+          this.closeConfirmationDialogDeactivate();
+        });
     }
   }
 
   confirmActivate() {
     if (this.userToDeactivate) {
-      this.userListService.activateUser(this.userToDeactivate.id).subscribe(() => {
-        this.users = this.users.filter(prod => prod.id !== this.userToDeactivate!.id);
-        this.getUsers();
-        this.closeConfirmationDialogActivate();
-      });
+      this.userListService
+        .activateUser(this.userToDeactivate.id)
+        .subscribe(() => {
+          this.users = this.users.filter(
+            (prod) => prod.id !== this.userToDeactivate!.id
+          );
+          this.getUsers();
+          this.closeConfirmationDialogActivate();
+        });
     }
   }
 
   closeConfirmationDialogActivate() {
     this.confirmationDialogActivate = false;
-    this.userToDeactivate = null; 
+    this.userToDeactivate = null;
   }
   closeConfirmationDialogDeactivate() {
     this.confirmationDialogActivate = false;
-    this.userToDeactivate = null; 
+    this.userToDeactivate = null;
   }
 
   addNewUser() {
@@ -180,12 +201,15 @@ export class UserListComponent {
       lastName: '',
       birthdate: new Date('1900-01-01'),
       interests: [],
-      active: false ,
-      role: ''
+      active: false,
+      role: '',
     };
   }
   private getNextUserId(): string {
-    const maxId = this.users.reduce((max, user) => (parseInt(user.id) > max ? parseInt(user.id) : max), 0);
+    const maxId = this.users.reduce(
+      (max, user) => (parseInt(user.id) > max ? parseInt(user.id) : max),
+      0
+    );
     return (maxId + 1).toString();
   }
 }

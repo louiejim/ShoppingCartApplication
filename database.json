@@ -13,7 +13,7 @@
     },
     {
       "id": "2",
-      "name": "Acer Bluetooth Keyboard  KM501",
+      "name": "Acer Bluetooth Keyboard and Mouse KM501",
       "category": "keyboard",
       "description": "This is a laptop",
       "price": 999,
@@ -26,11 +26,7 @@
       "id": "3",
       "name": "Acer Bluetooth Keyboard and Mouse KM501",
       "category": "mouse",
-<<<<<<< HEAD
       "description": "This is a laptop",
-=======
-      "description": "Wireless keyboard set desktop computer notebook keyboard mouse office use",
->>>>>>> 4bba5d5f0a13f0b045b9d200217fe43092eb1b25
       "price": 448.17,
       "sold": 5,
       "img": "https://images.acer.com/is/image/acer/acer_mouse_amr020_01?$Series-Component-M1-M2-S$",
@@ -41,10 +37,6 @@
       "id": "4",
       "name": "Enduro",
       "category": "tablet",
-<<<<<<< HEAD
-=======
-      "description": "This is a Tablet",
->>>>>>> 4bba5d5f0a13f0b045b9d200217fe43092eb1b25
       "price": 12341,
       "quantity_available": 50,
       "sold": 3,
@@ -55,10 +47,6 @@
       "id": "5",
       "name": "A15-51M-56E2 - Laptops | Acer",
       "category": "laptop",
-<<<<<<< HEAD
-=======
-      "description": "This is a Laptop",
->>>>>>> 4bba5d5f0a13f0b045b9d200217fe43092eb1b25
       "price": 30995,
       "quantity_available": 50,
       "sold": 3,
@@ -69,21 +57,10 @@
       "id": "6",
       "name": "KG251Q Zbmiip",
       "category": "monitor",
-      "description": "1ms UP TO 165Hz Ergonomic Tilt Widescreen Monitor",
-      "price": 9199,
+      "price": 20.49,
       "quantity_available": 50,
       "sold": 3,
       "img": "https://images.acer.com/is/image/acer/Acer-Nitro_KG1-series_KG251QZ_wp_01-1?$Product-Cards-S$"
-    },
-    {
-      "id": "7",
-      "name": "Nitro QG1 Gaming Monitor - QG241Y BI",
-      "category": "monitor",
-      "description": "SI PRO MP251 - 25 FHD",
-      "price": 4480,
-      "quantity_available": 50,
-      "sold": 3,
-      "img": "https://static-ecpa.acer.com/media/catalog/product/q/g/qg1_qg271_qg241y_qg221q-wp-01-1000x1000_um.qq1aa.004.png?optimize=high&bg-color=255,255,255&fit=bounds&height=320&width=320&canvas=320:320&format=jpeg"
     }
   ],
   "users": [

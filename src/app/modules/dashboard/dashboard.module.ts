@@ -12,15 +12,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { AddcartPopupComponent } from './pages/addcart-popup/addcart-popup.component';
 import { FormsModule } from '@angular/forms';
-<<<<<<< HEAD
 import { MatSelectModule } from '@angular/material/select';
 import { SearchFilterPipe } from '../pipes/search-filter.pipe';
 import { RangeFilterPipe } from '../pipes/range-filter.pipe';
-=======
-import { SearchFilterPipe } from '../pipes/search-filter.pipe';
-import { RangeFilterPipe } from '../pipes/range-filter.pipe';
-import { MatSelectModule } from '@angular/material/select';
->>>>>>> 4bba5d5f0a13f0b045b9d200217fe43092eb1b25
 
 @NgModule({
   declarations: [

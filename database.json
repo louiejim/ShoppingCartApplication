@@ -24,12 +24,12 @@
     },
     {
       "id": "3",
-      "name": "Acer Bluetooth Keyboard and Mouse KM501",
-      "category": "mouse",
+      "name": "ROG Falchion RX Low Profile",
+      "category": "keyboard",
       "description": "This is a laptop",
       "price": 448.17,
       "sold": 5,
-      "img": "https://images.acer.com/is/image/acer/acer_mouse_amr020_01?$Series-Component-M1-M2-S$",
+      "img": "https://dlcdnwebimgs.asus.com/gain/358CBEB5-3333-4C33-AFDA-F35880F28CD9/w717/h525",
       "editMode": true,
       "quantity_available": 25
     },
@@ -57,10 +57,11 @@
       "id": "6",
       "name": "KG251Q Zbmiip",
       "category": "monitor",
-      "price": 20.49,
+      "price": 5699,
       "quantity_available": 50,
       "sold": 3,
-      "img": "https://images.acer.com/is/image/acer/Acer-Nitro_KG1-series_KG251QZ_wp_01-1?$Product-Cards-S$"
+      "img": "https://images.acer.com/is/image/acer/Acer-Nitro_KG1-series_KG251QZ_wp_01-1?$Product-Cards-S$",
+      "editMode": true
     }
   ],
   "users": [
@@ -93,12 +94,11 @@
       "lastName": "Hernandez",
       "birthdate": "1990-01-01",
       "interests": [
-        "Interest1",
-        "Interest2"
+        "Interest1"
       ],
       "role": "user",
-      "active": true,
-      "editMode": true
+      "editMode": true,
+      "active": false
     },
     {
       "id": "2",

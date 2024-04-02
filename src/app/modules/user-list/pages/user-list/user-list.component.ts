@@ -178,8 +178,8 @@ export class UserListComponent {
     this.userToDeactivate = null;
   }
   closeConfirmationDialogDeactivate() {
-    this.confirmationDialogActivate = false;
     this.userToDeactivate = null;
+    this.confirmationDialogActivate = false;
   }
 
   addNewUser() {

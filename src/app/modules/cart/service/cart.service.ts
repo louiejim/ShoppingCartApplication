@@ -12,6 +12,7 @@ export class CartService {
   constructor(private toastr: ToastrService) {}
 
   getProduct() {
+    console.log(this.cartList);
     return this.cartList;
   }
 
@@ -47,13 +48,15 @@ export class CartService {
 
   removeCartItem(id: any) {
     let indexs: any;
-    this.cartList.find((i: any, index: any) => {
+    let a = this.cartList.find((i: any, index: any) => {
       i.id === id;
       if (i.id === id) {
         indexs = index;
       }
     });
     this.cartList.splice(indexs, 1);
+    localStorage.removeItem('cart');
+    localStorage.setItem('cart', JSON.stringify(this.cartList));
   }
 
   getTotal(id: number) {

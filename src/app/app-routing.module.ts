@@ -5,6 +5,7 @@ import { userGuard } from './core/guards/user.guard';
 import { UserListModule } from './modules/user-list/user-list.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { userlistGuard } from './core/guards/userlist.guard';
+import { CheckoutComponent } from './modules/cart/pages/checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,16 @@ const routes: Routes = [
     canActivate: [userlistGuard],
     loadChildren: () =>
       import('./modules/product/product.module').then((m) => m.ProductModule),
+  },
+  {
+    path: 'orders',
+    canActivate: [userGuard],
+    loadChildren: () =>
+      import('./modules/pending/pending.module').then((m) => m.PendingModule),
+  },
+  {
+    path: 'checkout', 
+    component: CheckoutComponent,
   },
 ];
 

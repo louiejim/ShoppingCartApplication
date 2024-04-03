@@ -25,6 +25,7 @@ export class CartComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator?: MatPaginator;
   @ViewChild(MatSort) sort?: MatSort;
+  userId: any;
 
   constructor(
     private Service: CartService,
@@ -39,6 +40,7 @@ export class CartComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.Service.getProduct());
+    this.userId = sessionStorage.getItem('id') || '';
   }
 
   displayedColumns: string[] = [
@@ -81,4 +83,89 @@ export class CartComponent implements OnInit, AfterViewInit {
       this.Service.decrementQuantity(id);
     }
   }
+
+  toCheckoutPage() {
+    if (!this.userId) {
+      console.error('User ID is not available');
+      return;
+    }
+  
+    const cartItems = this.dataSource.filteredData;
+
+    this.Service.getOrdersByUserIdAndStatus(this.userId, 'in-cart').subscribe(
+      (existingOrders: any[]) => {
+        if (existingOrders.length > 0) {
+          // Update the existing order with new cart items
+          const orderId = existingOrders[0].id;
+          const updatedOrder: any = {
+            id: orderId,
+            userId: this.userId,
+            products: existingOrders[0].products, // Keep existing products
+            status: 'in-cart'
+          };
+  
+          // Add new cart items to the existing order
+          for (const item of cartItems) {
+            const productId = item.id as any;
+            const quantity = item.quantity;
+
+            const existingProductIndex = updatedOrder.products.findIndex((product: any) => product.productId === productId);
+            if (existingProductIndex !== -1) {
+              
+              updatedOrder.products[existingProductIndex].quantity += quantity;
+            } else {
+              // If the product does not exist, add it to the order
+              updatedOrder.products.push({
+                productId: productId as any,
+                quantity: quantity
+              });
+            }
+          }
+  
+         
+          this.Service.updateOrder(orderId, updatedOrder).subscribe(
+            response => {
+              console.log('Order updated:', response);
+              this.router.navigate(['/checkout']);
+            },
+            error => {
+              console.error('Error updating order:', error);
+              
+            }
+          );
+        } else {
+          const newOrder: any = {
+            userId: this.userId,
+            products: [],
+            status: 'in-cart'
+          };
+  
+          for (const item of cartItems) {
+            const productId = item.id as any;
+            const quantity = item.quantity;
+            newOrder.products.push({
+              productId: productId as any,
+              quantity: quantity
+            });
+          }
+  
+          this.Service.addToOrders(newOrder).subscribe(
+            response => {
+              console.log('New order added:', response);
+              this.router.navigate(['/checkout']);
+            },
+            error => {
+              console.error('Error adding new order:', error);
+            }
+          );
+        }
+      },
+      error => {
+        console.error('Error fetching existing orders:', error);
+      }
+    );
+  }
+  
+  
+  
 }

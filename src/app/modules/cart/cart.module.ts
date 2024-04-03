@@ -11,9 +11,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { DeletePopupComponent } from './pages/delete-popup/delete-popup.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 @NgModule({
-  declarations: [CartComponent, DeletePopupComponent],
+  declarations: [CartComponent, DeletePopupComponent, CheckoutComponent],
   imports: [
     CommonModule,
     CartRoutingModule,

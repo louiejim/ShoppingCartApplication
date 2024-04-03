@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.scss']
+  styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent implements OnInit {
   public grandTotal: number = 0;
@@ -38,24 +38,16 @@ export class CheckoutComponent implements OnInit {
     this.calculateGrandTotal();
   }
 
-
   increment(id: any) {
     this.Service.incrementQuantity(id);
   }
 
-
-  displayedColumns: string[] = [
-    'name',
-    'category',
-    'price',
-    'img',
-    'quantity',
-  ];
+  displayedColumns: string[] = ['name', 'category', 'price', 'img', 'quantity'];
 
   calculateGrandTotal() {
     if (this.dataSource) {
       this.grandTotal = this.dataSource.filteredData.reduce(
-        (total: number, item: any) => total + (item.price * item.quantity),
+        (total: number, item: any) => total + item.price * item.quantity,
         0
       );
     } else {
@@ -68,17 +60,17 @@ export class CheckoutComponent implements OnInit {
       console.error('User ID is not available');
       return;
     }
-  
+
     this.Service.getOrdersByUserIdAndStatus(this.userId, 'in-cart').subscribe(
       (existingOrders: any[]) => {
         if (existingOrders.length > 0) {
           // Update the status of existing orders to 'pending'
-          existingOrders.forEach(order => {
+          existingOrders.forEach((order) => {
             this.Service.updateOrderStatus(order).subscribe(
-              response => {
+              (response) => {
                 console.log('Order status updated:', response);
               },
-              error => {
+              (error) => {
                 console.error('Error updating order status:', error);
               }
             );
@@ -86,17 +78,14 @@ export class CheckoutComponent implements OnInit {
         } else {
           console.log('No existing orders with "in-cart" status for the user.');
         }
-  
+
         localStorage.clear();
         this.toastr.success('Checkout Successful!');
         this.router.navigate(['/dashboard']);
       },
-      error => {
+      (error) => {
         console.error('Error fetching existing orders:', error);
-        
       }
     );
   }
-  
-
 }

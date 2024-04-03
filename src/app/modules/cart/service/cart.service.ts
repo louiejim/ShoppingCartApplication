@@ -1,4 +1,12 @@
-import { map, filter, BehaviorSubject, Observable, catchError, throwError, of } from 'rxjs';
+import {
+  map,
+  filter,
+  BehaviorSubject,
+  Observable,
+  catchError,
+  throwError,
+  of,
+} from 'rxjs';
 import { Injectable, numberAttribute } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -14,9 +22,7 @@ export class CartService {
   private baseUrl = 'http://localhost:3000';
   private ordersUrl = 'http://localhost:3000/orders';
 
-  constructor(
-    private http: HttpClient,
-    private toastr: ToastrService) {}
+  constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   getProduct() {
     console.log(this.cartList);
@@ -79,47 +85,48 @@ export class CartService {
   }
 
   //newly added
-    //for checkout
-    addToOrders(order: any): Observable<any> {
-      return this.http.post<any>(this.ordersUrl, order);
+  //for checkout
+  addToOrders(order: any): Observable<any> {
+    return this.http.post<any>(this.ordersUrl, order);
+  }
+
+  createOrder(orders: any[]): Observable<any> {
+    if (orders.length === 0) {
+      return new Observable();
     }
-  
-    createOrder(orders: any[]): Observable<any> {
-      if (orders.length === 0) {
-        return new Observable();
-      }
-    
-      const formattedOrders = orders.map((order: any) => {
-        return {
-          productId: order.id,
-          quantity: order.quantity,
-          status: 'pending' // Set status to pending
-        };
-      });
-    
-      
-      return this.http.post(this.ordersUrl, formattedOrders);
-    }
-  
-  
+
+    const formattedOrders = orders.map((order: any) => {
+      return {
+        productId: order.id,
+        quantity: order.quantity,
+        status: 'pending', // Set status to pending
+      };
+    });
+
+    return this.http.post(this.ordersUrl, formattedOrders);
+  }
+
   // Update order status
   updateOrderStatus(order: any): Observable<any> {
     const url = `${this.ordersUrl}/${order.id}`;
-    const updatedOrder = { ...order, status: 'pending' }; 
+    const updatedOrder = { ...order, status: 'pending' };
+    this.cartList = [];
     return this.http.put<any>(url, updatedOrder).pipe(
-      catchError(error => {
+      catchError((error) => {
         console.error('Error updating order status:', error);
         return throwError('Error updating order status');
       })
     );
   }
-  
+
   updateOrder(orderId: string, updatedOrderData: any): Observable<orders> {
     const url = `${this.baseUrl}/orders/${orderId}`;
     return this.http.put<orders>(url, updatedOrderData);
   }
 
   getOrdersByUserIdAndStatus(userId: any, status: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/orders?userId=${userId}&status=${status}`);
+    return this.http.get<any[]>(
+      `${this.baseUrl}/orders?userId=${userId}&status=${status}`
+    );
   }
 }

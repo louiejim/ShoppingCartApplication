@@ -1,7 +1,7 @@
 <app-header></app-header>
 <br />
 <ng-container *ngIf="dataSource.filteredData.length">
-  <div>
+  <div class="table">
     <div class="container">
       <table
         mat-table
@@ -121,6 +121,11 @@
     </div>
   </div>
 </ng-container>
+
+<div class="button-container">
+  <button (click)="toCheckoutPage()">Checkout</button>
+</div>
+
 <ng-container *ngIf="!dataSource.filteredData.length">
   <mat-card class="card">
     <mat-card-header>

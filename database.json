@@ -17,7 +17,7 @@
       "category": "keyboard",
       "description": "This is a laptop",
       "price": 999,
-      "sold": 3,
+      "sold": 31,
       "img": "https://images.acer.com/is/image/acer/AAK123-04?$Series-Component-M1-M2-S$",
       "editMode": true,
       "quantity_available": 10
@@ -39,7 +39,7 @@
       "category": "tablet",
       "price": 12341,
       "quantity_available": 50,
-      "sold": 3,
+      "sold": 21,
       "img": "https://images.acer.com/is/image/acer/ENDURO-Urban-T3-EUT310A-11A-wallpaper-UI-polaris-blue-06-7?$Line-Overview-M1-M2-S$",
       "editMode": true
     },
@@ -48,8 +48,8 @@
       "name": "A15-51M-56E2 - Laptops | Acer",
       "category": "laptop",
       "price": 30995,
-      "quantity_available": 50,
-      "sold": 3,
+      "quantity_available": 1,
+      "sold": 1,
       "img": "https://images.acer.com/is/image/acer/Swift-Go-14-1?$Product-Cards-S$",
       "editMode": true
     },
@@ -59,7 +59,7 @@
       "category": "monitor",
       "price": 5699,
       "quantity_available": 50,
-      "sold": 3,
+      "sold": 31,
       "img": "https://images.acer.com/is/image/acer/Acer-Nitro_KG1-series_KG251QZ_wp_01-1?$Product-Cards-S$",
       "editMode": true
     }
@@ -84,7 +84,7 @@
       "active": true
     },
     {
-      "id": "4",
+      "id": "7",
       "username": "user1",
       "password": "password1",
       "email": "user1@example.com",

@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CartService } from '../../../cart/service/cart.service';
 import { AddcartPopupComponent } from '../addcart-popup/addcart-popup.component';
 import { MatDialog } from '@angular/material/dialog';
+import { products } from '../../../../shared/model/products.interface';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,7 +14,8 @@ export class DashboardComponent implements OnInit {
   number: any;
   maxValue: number;
   minValue: number;
-
+  topFiveProducts: products[] = [];
+  userRole!: string;
   constructor(
     private api: DashboardService,
     private cartservice: CartService,
@@ -27,6 +29,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProduct();
+    this.userRole = sessionStorage.getItem('role') || '';
+    this.getTopFiveProducts();
   }
 
   addtoCart(item: any) {
@@ -70,6 +74,19 @@ export class DashboardComponent implements OnInit {
         Object.assign(element, { quantity: 1, total: element.price });
         this.number = this.cartservice.getProduct().length;
       });
+    });
+  }
+
+  getTopFiveProducts(){
+    this.api.getProducts().subscribe((products: products[]) => {
+      const validProducts = products.filter(product => product.sold !== undefined);
+      validProducts.sort((a, b) => {
+        if (a.sold && b.sold) { 
+          return b.sold - a.sold;
+        }
+        return 0;
+      });
+      this.topFiveProducts = validProducts.slice(0, 5);
     });
   }
 }

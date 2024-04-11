@@ -1,4 +1,5 @@
 <app-header></app-header>
+<ng-container *ngIf="userRole === 'user'">
 <header>
   <div class="form-group">
     <input
@@ -137,3 +138,18 @@
   </div>
 </div>
 <div></div>
+</ng-container>
+<ng-container *ngIf="userRole === 'admin'">
+  <br>
+  <h1>Top 5 Sold Products</h1>
+  <div class="container top-products-container">
+    <div *ngFor="let product of topFiveProducts" class="product-item card">
+      <img [src]="product.img" alt="{{ product.name }}" />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.price | currency : 'PHP' }}</p>
+        <p class="card-text">Sold: {{ product.sold }}</p> 
+      </div>
+    </div>
+  </div>
+</ng-container>

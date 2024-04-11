@@ -97,3 +97,29 @@ h3 {
 .range-group {
   margin-left: 1%;
 }
+.container.top-products-container {
+  display: flex;
+  flex-wrap: wrap; 
+  overflow-x: auto; 
+  margin-bottom: 20px; 
+}
+
+.product-item.card {
+  flex: 0 0 auto; 
+  margin-right: 20px; 
+  width: 300px;
+}
+
+.product-item.card:last-child {
+  margin-right: 0; 
+}
+
+h1 {
+  font-size: 24px; /* Adjust the font size */
+  color: #333; /* Set the text color */
+  margin-bottom: 20px; /* Add margin at the bottom */
+  text-align: center; /* Center align the text */
+  text-transform: uppercase; /* Convert text to uppercase */
+  border-bottom: 2px solid #333; /* Add a border at the bottom */
+  padding-bottom: 10px; /* Add padding at the bottom */
+}

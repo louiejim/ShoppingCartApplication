@@ -52,7 +52,7 @@ export class PopupComponent implements OnInit {
     firstName: '',
     middleName: '',
     lastName: '',
-    birthdate: new Date(),
+    birthdate: '',
     interests: new Array(),
     role: this.builder.control(''),
   });

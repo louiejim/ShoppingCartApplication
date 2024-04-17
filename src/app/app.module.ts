@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { UserModule } from './modules/user/user.module';
+import { IsDuplicateUsernameDirective } from './core/directives/is-duplicate-username.directive';
 
 @NgModule({
   declarations: [AppComponent],

@@ -4,13 +4,7 @@
     <ng-container matColumnDef="userName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>User Name</th>
       <td mat-cell *matCellDef="let user">
-        <ng-container *ngIf="!user.editMode">{{ user.username }}</ng-container>
-        <ng-container *ngIf="user.editMode">
-          <input class="input" type="text" [(ngModel)]="user.username" placeholder="Username" required #userName="ngModel">
-          <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="error-message">
-            <p *ngIf="userName.errors?.['required']" class="error-text">Username is required.</p>
-          </div>
-        </ng-container>
+        <ng-container>{{ user.username }}</ng-container>
       </td>
     </ng-container>
     <ng-container matColumnDef="password">
@@ -157,61 +151,64 @@
 
   <div class="add-product-form" *ngIf="showAddUserForm">
     <form #addUserForm="ngForm" (ngSubmit)="addNewUser()">
-      <label for="Name">Name: </label>
-      <input type="text" [(ngModel)]="newUser.username" username="username" placeholder="Enter Username" required #username="ngModel">
+      <label for="username">Username:</label>
+      <input type="text" [(ngModel)]="newUser.username" name="username" required #username="ngModel" appIsDuplicateUsername [appIsDuplicateUsername]="userListComponent">
       <div *ngIf="username.invalid && (username.dirty || username.touched)" class="error-message">
         <div *ngIf="username.errors?.['required']" class="error-text">
           Username is required.
         </div>
-      </div>
-      <label for="password">Password: </label>
-      <input type="text" [(ngModel)]="newUser.password" password="password" placeholder="Enter Password" required #password="ngModel">
-      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
-        <div *ngIf="password.errors?.['required']" class="error-text">
-          Password is required.
+        <div *ngIf="username.errors && username.errors['duplicateUsername']" class="error-text">
+          Username already exists.
         </div>
       </div>
-      <label for="firstName">FirstName: </label>
-      <input type="text" [(ngModel)]="newUser.firstName" firstName="firstName" placeholder="Enter First Name" required #firstName="ngModel">
-      <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="error-message">
-        <div *ngIf="firstName.errors?.['required']" class="error-text">
-          First Name is required.
-        </div>
+    <label for="password">Password:</label>
+    <input type="password" [(ngModel)]="newUser.password" name="password" required #password="ngModel">
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
+      <div *ngIf="password.errors?.['required']" class="error-text">
+        Password is required.
       </div>
-      <label for="middleName">MiddleName: </label>
-      <input type="text" [(ngModel)]="newUser.middleName" middleName="middleName" placeholder="Enter Middle Name">
-      <label for="LastName">LastName: </label>
-      <input type="text" [(ngModel)]="newUser.lastName" lastName="lastName" placeholder="Enter Last Name" required #lastName="ngModel">
-      <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="error-message">
-        <div *ngIf="lastName.errors?.['required']" class="error-text">
-          Last Name is required.
-        </div>
+    </div>
+    <label for="firstName">First Name:</label>
+    <input type="text" [(ngModel)]="newUser.firstName" name="firstName" required #firstName="ngModel">
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
+      <div *ngIf="password.errors?.['required']" class="error-text">
+        First Name is required.
       </div>
-      <label for="email">Email: </label>
-      <input type="text" [(ngModel)]="newUser.email" email="email" placeholder="Enter Email" required #email="ngModel">
-      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
-        <div *ngIf="email.errors?.['required']" class="error-text">
-          Email is required.
-        </div>
+    </div>
+    <label for="middleName">Middle Name:</label>
+    <input type="text" [(ngModel)]="newUser.middleName" name="middleName">
+    <label for="lastName">Last Name:</label>
+    <input type="text" [(ngModel)]="newUser.lastName" name="lastName" required #lastName="ngModel">
+    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="error-message">
+      <div *ngIf="lastName.errors?.['required']" class="error-text">
+        Last Name is required.
       </div>
-      <label for="mobile">Phone Number: </label>
-      <input type="text" [(ngModel)]="newUser.mobile" mobile="mobile" placeholder="Enter Phone Number" required #mobile="ngModel">
-      <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="error-message">
-        <div *ngIf="mobile.errors?.['required']" class="error-text">
-          Phone Number is required.
-        </div>
+    </div>
+    <label for="email">Email:</label>
+    <input type="email" [(ngModel)]="newUser.email" name="email" required #email="ngModel">
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+      <div *ngIf="email.errors?.['required']" class="error-text">
+        Email is required.
       </div>
-      <label for="birthdate">BirthDate: </label>
-      <input type="date" [(ngModel)]="newUser.birthdate" birthdate="birthdate" required #birthdate="ngModel">
-      <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)" class="error-message">
-        <div *ngIf="birthdate.errors?.['required']" class="error-text">
-          BirthDate is required.
-        </div>
+    </div>
+    <label for="mobile">Mobile:</label>
+    <input type="tel" [(ngModel)]="newUser.mobile" name="mobile" required #mobile="ngModel">
+    <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="error-message">
+      <div *ngIf="mobile.errors?.['required']" class="error-text">
+        Mobile is required.
       </div>
+    </div>
+    <label for="birthdate">Birthdate:</label>
+    <input type="date" [(ngModel)]="newUser.birthdate" name="birthdate" required #birthdate="ngModel">
+    <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)" class="error-message">
+      <div *ngIf="birthdate.errors?.['required']" class="error-text">
+        Birthdate is required.
+      </div>
+    </div>
       <label for="interest">Interest: </label>
-  <select [(ngModel)]="newUser.interests" name="interest">
-   <option *ngFor="let interest of interests" [value]="interest">{{ interest }}</option>
-</select>
+      <select [(ngModel)]="selectedInterest" name="interest">
+        <option *ngFor="let interest of interests" [value]="interest">{{ interest }}</option>
+      </select>
 
 <label for="role">Role: </label>
 <select [(ngModel)]="newUser.role" name="role">
@@ -223,7 +220,7 @@
   <option value="true">True</option>
   <option value="false">False</option>
 </select>
-      <button class="save-btn" [disabled]="!addUserForm.valid" [class.disabled-btn]="addUserForm.invalid">Add User</button>
-      <button class="cancel-btn" (click)="toggleAddUserForm()">Cancel</button>
+<button class="save-btn" [disabled]="addUserForm.invalid || (username.errors?.['duplicateUsername'] && !username.pristine)" [class.disabled-btn]="addUserForm.invalid || (username.errors?.['duplicateUsername'] && !username.pristine)">Add User</button>
+    <button class="cancel-btn" (click)="toggleAddUserForm()">Cancel</button>
     </form>
 </div>

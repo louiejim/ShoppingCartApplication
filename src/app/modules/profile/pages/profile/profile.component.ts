@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
     firstName: this.fb.control('', Validators.required),
     middleName: this.fb.control(''),
     lastName: this.fb.control('', Validators.required),
-    birthdate: new Date(),
+    birthdate: '',
     interests: this.fb.array([]),
     role: '',
   });

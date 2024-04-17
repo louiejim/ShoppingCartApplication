@@ -1,11 +1,6 @@
-import { Observable } from 'rxjs';
-import { Component, ViewChild, viewChild } from '@angular/core';
-import { UserService } from '../../../user/service/user.service';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
+import { Component, ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { MatDialog } from '@angular/material/dialog';
-import { PopupComponent } from '../popup/popup.component';
 import { Users } from '../../../../shared/model/users.interface';
 import { UserListService } from '../../service/user-list.service';
 import { FormGroup } from '@angular/forms';
@@ -13,10 +8,11 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrl: './user-list.component.scss',
+  styleUrls: ['./user-list.component.scss'],
 })
 export class UserListComponent {
   @ViewChild(MatSort) sort!: MatSort;
+  userListComponent: UserListComponent | string = this;
   editForm!: FormGroup;
   dataSource!: MatTableDataSource<Users>;
   users: Users[] = [];
@@ -31,7 +27,7 @@ export class UserListComponent {
     firstName: '',
     middleName: '',
     lastName: '',
-    birthdate: new Date('1900-01-01'),
+    birthdate: '',
     interests: [],
     active: true,
     role: 'user',
@@ -41,6 +37,7 @@ export class UserListComponent {
   confirmationDialogDeactivate: boolean = false;
   userToDeactivate: Users | null = null;
   selectedInterest: string[] = [];
+  isDuplicateUsername: boolean = false;
   interests = [
     'Fashion and clothing',
     'Electronics and gadgets',
@@ -63,19 +60,8 @@ export class UserListComponent {
     'Vintage and antique items',
     'Health and wellness products',
   ];
-  displayedColumns: string[] = [
-    'userName',
-    'password',
-    'firstName',
-    'middleName',
-    'lastName',
-    'email',
-    'mobile',
-    'birthdate',
-    'actions',
-  ];
   constructor(private userListService: UserListService) {}
-  userName = sessionStorage.getItem('userName');
+
   ngOnInit() {
     this.dataSource = new MatTableDataSource<Users>(this.users);
     this.dataSource.sort = this.sort;
@@ -104,6 +90,9 @@ export class UserListComponent {
         user.editMode = false;
       }
     }
+  }
+  checkDuplicateUsername(username: string): boolean {
+    return this.users.some(user => user.username === username);
   }
 
   isFormValid(user: Users): boolean {
@@ -183,11 +172,19 @@ export class UserListComponent {
   }
 
   addNewUser() {
+    this.isDuplicateUsername = this.checkDuplicateUsername(this.newUser.username);
+    if (this.isDuplicateUsername) {
+      console.error("Username already exists.");
+      return;
+    }
     this.newUser.id = this.getNextUserId();
     this.newUser.interests = this.selectedInterest;
     this.addUser(this.newUser);
     this.showAddUserForm = !this.showAddUserForm;
+    this.selectedInterest = [];
   }
+
+  
 
   private resetNewProduct() {
     this.newUser = {
@@ -199,10 +196,10 @@ export class UserListComponent {
       firstName: '',
       middleName: '',
       lastName: '',
-      birthdate: new Date('1900-01-01'),
+      birthdate: '',
       interests: [],
-      active: false,
-      role: '',
+      active: true,
+      role: 'user',
     };
   }
   private getNextUserId(): string {

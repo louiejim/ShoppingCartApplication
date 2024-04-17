@@ -11,9 +11,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { PopupComponent } from './pages/popup/popup.component';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IsDuplicateUsernameDirective } from '../../core/directives/is-duplicate-username.directive';
 
 @NgModule({
-  declarations: [UserListComponent, PopupComponent],
+  declarations: [UserListComponent, PopupComponent, IsDuplicateUsernameDirective],
   imports: [
     CommonModule,
     UserListRoutingModule,

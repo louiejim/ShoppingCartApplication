@@ -23,8 +23,7 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private toastr: ToastrService,
     private Service: CartService,
-    private router: Router,
-    private dialog: MatDialog
+    private router: Router
   ) {}
 
   ngAfterViewInit(): void {

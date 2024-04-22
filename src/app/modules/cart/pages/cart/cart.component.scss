@@ -37,9 +37,6 @@
 .material-symbols-outlined:hover {
   transform: scale(1.2);
 }
-.container {
-  max-width: 80%;
-}
 
 .custom-image {
   width: 242px;
@@ -63,11 +60,10 @@
   padding-bottom: 20px;
 }
 
-
 .button-container button {
-  padding: 10px 20px; 
+  padding: 10px 20px;
   background-color: #663399;
-  color: #fff; 
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -78,4 +74,3 @@
 .button-container button:hover {
   background-color: #401968;
 }
-

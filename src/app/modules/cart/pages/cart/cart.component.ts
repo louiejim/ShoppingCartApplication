@@ -56,7 +56,7 @@ export class CartComponent implements OnInit, AfterViewInit {
     const popup = this.dialog.open(DeletePopupComponent, {
       enterAnimationDuration: '500ms',
       exitAnimationDuration: '500ms',
-      width: '18%',
+      width: '16%',
       data: {
         code: id,
       },

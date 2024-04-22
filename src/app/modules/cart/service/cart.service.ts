@@ -25,7 +25,6 @@ export class CartService {
   constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   getProduct() {
-    console.log(this.cartList);
     return this.cartList;
   }
 

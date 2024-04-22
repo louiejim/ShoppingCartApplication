@@ -26,6 +26,10 @@ export class AddcartPopupComponent implements OnInit {
   increment() {
     this.item.quantity++;
   }
+
+  decrement() {
+    this.item.quantity--;
+  }
   submit() {
     this.item.total = this.item.price * this.item.quantity;
     this.toastr.success('Success');

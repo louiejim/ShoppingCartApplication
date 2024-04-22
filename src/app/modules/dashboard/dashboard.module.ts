@@ -15,7 +15,6 @@ import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { SearchFilterPipe } from '../pipes/search-filter.pipe';
 import { RangeFilterPipe } from '../pipes/range-filter.pipe';
-
 @NgModule({
   declarations: [
     DashboardComponent,

@@ -1,9 +1,10 @@
 import { DashboardService } from './../../services/dashboard.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../../cart/service/cart.service';
 import { AddcartPopupComponent } from '../addcart-popup/addcart-popup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { products } from '../../../../shared/model/products.interface';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -39,7 +40,7 @@ export class DashboardComponent implements OnInit {
     const popup = this.dialog.open(AddcartPopupComponent, {
       enterAnimationDuration: '500ms',
       exitAnimationDuration: '500ms',
-      width: '18%',
+      width: '17%',
       data: {
         code: item,
       },
@@ -77,11 +78,13 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  getTopFiveProducts(){
+  getTopFiveProducts() {
     this.api.getProducts().subscribe((products: products[]) => {
-      const validProducts = products.filter(product => product.sold !== undefined);
+      const validProducts = products.filter(
+        (product) => product.sold !== undefined
+      );
       validProducts.sort((a, b) => {
-        if (a.sold && b.sold) { 
+        if (a.sold && b.sold) {
           return b.sold - a.sold;
         }
         return 0;

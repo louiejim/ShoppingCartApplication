@@ -5,38 +5,45 @@
     </div>
   </mat-card-header>
   <mat-card-title>
-    <div>
-      <h3 class="slides">
-        <img src="{{ item.img }}" alt="" />
-      </h3>
+    <div class="slides">
+      <img src="{{ item.img }}" alt="" />
     </div>
   </mat-card-title>
   <br />
   <mat-card-content>
-    <section class="flex items-center">
-      <div class="quantity">{{ item.price | currency : "PHP" }}</div>
-      <div class="quantity">
-        Quantity: {{ item.quantity }}
-        <button (click)="increment()">+</button>
+    <div class="content">
+      <div>
+        {{ item.price | currency : "PHP" }}
       </div>
-    </section>
+      <div>Quantity: {{ item.quantity }}</div>
+      <div class="item-right">
+        <button (click)="decrement()" *ngIf="item.quantity >= 2">-</button>
+        <button (click)="increment()" style="margin-left: 5px">+</button>
+      </div>
+    </div>
+
     <br />
     <br />
-    <section>
-      <div class="example-button-row" style="margin-left: 60px">
-        <button
-          mat-raised-button
-          color="accent"
-          style="background-color: rebeccapurple"
-          type="button"
-          (click)="submit()"
-        >
-          Yes
-        </button>
-        <button mat-flat-button color="basic" type="button" (click)="back()">
-          No
-        </button>
-      </div>
-    </section>
+
+    <div class="buttons">
+      <button
+        mat-raised-button
+        color="accent"
+        style="background-color: rebeccapurple; margin-right: 10px"
+        type="button"
+        (click)="submit()"
+      >
+        Yes
+      </button>
+      <button
+        mat-flat-button
+        color="basic"
+        style="margin-left: 10px"
+        type="button"
+        (click)="back()"
+      >
+        No
+      </button>
+    </div>
   </mat-card-content>
 </mat-card>

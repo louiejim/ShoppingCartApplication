@@ -29,17 +29,19 @@
           </a>
         </li>
 
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            aria-current="page"
-            routerLink="/orders"
-            [routerLinkActive]="['router-link-active']"
-          >
-            <mat-icon style="padding-top: 3px">receipt</mat-icon>
-            Orders
-          </a>
-        </li>
+        <ng-container *ngIf="userRole !== 'admin'">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="/orders"
+              [routerLinkActive]="['router-link-active']"
+            >
+              <mat-icon style="padding-top: 3px">receipt</mat-icon>
+              Orders
+            </a>
+          </li>
+        </ng-container>
 
         <li class="nav-item">
           <a

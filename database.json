@@ -29,28 +29,28 @@
       "description": "This is a laptop",
       "price": 448.17,
       "sold": 5,
-      "img": "https://dlcdnwebimgs.asus.com/gain/358CBEB5-3333-4C33-AFDA-F35880F28CD9/w717/h525",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpOfEKX7b7xWVYHWLTzQjFAOhWFUoCaAeJRg&s",
       "editMode": true,
       "quantity_available": 25
     },
     {
       "id": "4",
-      "name": "Enduro",
+      "name": "Acer  Enduro T1 ET108-11A",
       "category": "tablet",
-      "price": 12341,
+      "price": 19434.66,
       "quantity_available": 50,
       "sold": 21,
-      "img": "https://images.acer.com/is/image/acer/ENDURO-Urban-T3-EUT310A-11A-wallpaper-UI-polaris-blue-06-7?$Line-Overview-M1-M2-S$",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSS95-g02OTAFiP05AYWbWjSHqlg7HbOJNSZD5s-5nEUTlw3xkwJcLcLymew3ZeaRTT8EzrguPYCETXFU7lka48FdVmrtz5yKLVZGzjp6lR&usqp=CAE",
       "editMode": true
     },
     {
       "id": "5",
-      "name": "A15-51M-56E2 - Laptops | Acer",
+      "name": "Acer Laptop Aspire 5 Intel Core i5-1335U 16 GB",
       "category": "laptop",
-      "price": 30995,
-      "quantity_available": 1,
+      "price": 35833,
+      "quantity_available": 10,
       "sold": 1,
-      "img": "https://images.acer.com/is/image/acer/Swift-Go-14-1?$Product-Cards-S$",
+      "img": "https://c1.neweggimages.com/ProductImage/34-360-278-V01.jpg",
       "editMode": true
     },
     {
@@ -61,6 +61,105 @@
       "quantity_available": 50,
       "sold": 31,
       "img": "https://images.acer.com/is/image/acer/Acer-Nitro_KG1-series_KG251QZ_wp_01-1?$Product-Cards-S$",
+      "editMode": true
+    },
+    {
+      "id": "7",
+      "name": "Logitech RGB G910 Orion Spark Mechanical Gaming Keyboard",
+      "price": 9500,
+      "category": "keyboard",
+      "quantity_available": 10,
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcScznlSsPh_q0EkNoBcib8cxlu0e1lB8lSra7_o4vXkPUvs75B_P_U4bckagVbdBL92J7hXkJ5JbLTxK9Zv355snaCLbrHfHLDYFayYJ9o&usqp=CAE",
+      "editMode": true
+    },
+    {
+      "id": "8",
+      "name": "CORSAIR STRAFE RGB MK.2 Mechanical Gaming Keyboard",
+      "price": 7700,
+      "category": "keyboard",
+      "quantity_available": 50,
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTpzICFKP9WXDPH6BU-AE-sWlRimogUQv-mh8etqjARUwzAC33_-1nOOdpUF1Ajb5BY7-dFh0e9wQljfsWaamSTGyFGw07P6k1w0XPVyAnb8m_HNIO1C8v6&usqp=CAE",
+      "editMode": true
+    },
+    {
+      "id": "9",
+      "name": "Lenovo LOQ 15IRX9 83DV0014PH 15.6\" FHD (1920x1080) IPS Gaming Laptop | Intel® Core™ i5-13450HX | RTX™ 4050 | 8GB DDR5 | 512GB SSD",
+      "price": 56995,
+      "category": "laptop",
+      "quantity_available": 30,
+      "img": "data:image/webp;base64,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",
+      "editMode": true
+    },
+    {
+      "id": "10",
+      "name": "MSI Cyborg 14 A13VF-021PH 14\" FHD+ Gaming Laptop | Intel Core i7-13620HR | RTX 4060 | 16GB DDR5 | 512GB SSD",
+      "price": 72995,
+      "category": "laptop",
+      "quantity_available": 25,
+      "img": "https://tpc.googlesyndication.com/simgad/15506360856117666414?sqp=-oaymwEMCNABENABIAFQAVgB&rs=AOga4ql4nB_EyJ2RO-bcFa_SxAko3hqwlA",
+      "editMode": true
+    },
+    {
+      "id": "11",
+      "name": "Asus ROG Zephyrus G16 GU605MI-QR169WS 16\" Gaming Laptop Intel Core Ultra 7-155H",
+      "price": 179994.99,
+      "category": "laptop",
+      "quantity_available": 35,
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS_w2IKjp6cjeWhu4vmjZB4NttroIr_3GJPfDaR5TPY3ipcwvwJuWazBdgKl42_NsmDmOT1fI-1_mjprHCBsNDKdmpvp0DY7Q8qiaAnLhAH1duQPPBsdKgwAg&usqp=CAE",
+      "editMode": true
+    },
+    {
+      "id": "12",
+      "name": "Samsung GALAXY TAB S6 LITE Oxford Gray 128GB Tablet SM-P619NZAYXTC",
+      "price": 21490,
+      "category": "tablet",
+      "quantity_available": 15,
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSzE3-ASNp6KXavP4eTStawTOP2v4xj-zJZDlf4IRCbU1JoVND_NcpSImbKUmTWJ6PhPnq5yAoItGLV00WEpHwpcKl-xWJvYLmA4Bsot4trfT2XHlU5XZisQg&usqp=CAE",
+      "editMode": true
+    },
+    {
+      "id": "13",
+      "name": "Samsung GALAXY TAB S8 Ultra 5G Graphite 12GB+256GB Tablet SM-X906BZAEXTC",
+      "price": 70490,
+      "category": "tablet",
+      "quantity_available": 35,
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcROSByJQpBk5Gtk_4AOCD_a5GoppxvngfPevYPIJeAwV4PBvSn-7EetzzQLS2vaxLKVwyDGoa1XeeTvklZhaWLMDtLT5cT2T1U3gLcK_at9TTmN6O2km1fW&usqp=CAE",
+      "editMode": true
+    },
+    {
+      "id": "14",
+      "name": "Samsung GALAXY TAB A8 LTE Pink Gold 128GB Tablet SM-X205NIDFXTC",
+      "price": 18090,
+      "category": "tablet",
+      "quantity_available": 35,
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTfeGElGL4iRcZuGm4EiECiVI6gEX12cg-L_RJs6qHbRTCXqqht_X_5NsGTziQhvZm-h4IG2rCZA3y_jqtW0JoVZfE8cl3ewkl-A-gsVOg&usqp=CAE",
+      "editMode": true
+    },
+    {
+      "id": "15",
+      "name": "ViewPlus ML-24S 23.8\" 100HZ FHD Monitor",
+      "price": 4230,
+      "category": "monitor",
+      "quantity_available": 35,
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSX7KujaGcZaXPD1cQeMzPkrCmQJ24qSDA0EF3EUKxbq_G7QH4DXohWuukuFLegcAzLu2FZfZTxA4YyVHkSLFHDn4IBLdFIhEcz4Kxsj66adyKdiyVH4zDZ&usqp=CAE",
+      "editMode": true
+    },
+    {
+      "id": "16",
+      "name": "ViewPlus ML-27S 27\" 100Hz FHD Monitor Black",
+      "price": 5230,
+      "category": "monitor",
+      "quantity_available": 53,
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS1cHy_aKfMQTwzwCLF3CGDEK8Efin0teqBfct0L8F7Tjq0mXctxbdyMhs2rEhj6fFaJxEx1tB0rr3dPc4GrZU1j40AmACh2NJDO5Cj5ERSR1T_n99RZa1I&usqp=CAE",
+      "editMode": true
+    },
+    {
+      "id": "17",
+      "name": "Samsung LF22T350FHNXZA 22\" 16:9 FreeSync 75 Hz IPS Monitor",
+      "price": 4769.54,
+      "category": "monitor",
+      "quantity_available": 35,
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQg2La2eJVngQ4BHLcWXMm5xlAeW1O1a_lpNTvWz5ZaiL-dEvEqB3uXJnvOXDClrvT1emg0SLZ0pj0Z1h7WbWo1uWcKRX-rhNnRrgdLaBs&usqp=CAE",
       "editMode": true
     }
   ],
@@ -94,11 +193,10 @@
       "lastName": "Hernandez",
       "birthdate": "1990-01-01",
       "interests": [
-        "Interest1"
+        "Interest1",
+        "Interest2"
       ],
-      "role": "user",
-      "editMode": true,
-      "active": false
+      "role": "user"
     },
     {
       "id": "2",
@@ -137,36 +235,6 @@
     }
   ],
   "orders": [
-    {
-      "id": "1",
-      "userId": 1,
-      "products": [
-        {
-          "productId": 1,
-          "quantity": 2
-        },
-        {
-          "productId": 2,
-          "quantity": 1
-        }
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "1",
-      "userId": 1,
-      "products": [
-        {
-          "productId": 1,
-          "quantity": 2
-        },
-        {
-          "productId": 2,
-          "quantity": 1
-        }
-      ],
-      "status": "in-cart"
-    },
     {
       "id": "125e",
       "userId": "4",
@@ -266,6 +334,51 @@
         }
       ],
       "status": "pending"
+    },
+    {
+      "id": "01bd",
+      "userId": "7",
+      "products": [
+        {
+          "productId": "6",
+          "quantity": 2
+        },
+        {
+          "productId": "11",
+          "quantity": 2
+        },
+        {
+          "productId": "8",
+          "quantity": 2
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "2930",
+      "userId": "7",
+      "products": [
+        {
+          "productId": "6",
+          "quantity": 1
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "5b18",
+      "userId": "7",
+      "products": [
+        {
+          "productId": "3",
+          "quantity": 5
+        },
+        {
+          "productId": "2",
+          "quantity": 1
+        }
+      ],
+      "status": "in-cart"
     }
   ],
   "role": [
